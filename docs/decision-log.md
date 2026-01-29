@@ -1,0 +1,311 @@
+# Design Decision Log
+
+## Overview
+
+This document tracks the original design options, adapted choices, and trade-offs made during the nRF52840 + SX1262 PCB design process.
+
+---
+
+## Decision 1: PCB Layer Count
+
+| Option | Cost | Performance | Chosen |
+|--------|------|-------------|--------|
+| **2-layer** | ~$0.50/unit | Adequate for this design | YES |
+| 4-layer | ~$1.50/unit | Better RF, easier routing | NO |
+
+**Trade-off:** 2-layer saves ~$1/unit but requires more careful RF layout. Acceptable for this board size and complexity.
+
+**Mitigation:** Maximize ground pour on bottom layer, use ground stitching vias around RF sections.
+
+---
+
+## Decision 2: Power Management Architecture
+
+### Original Option: LTC4412 Ideal Diode Controller
+
+| Spec | Value |
+|------|-------|
+| Part | LTC4412MPS6#TRPBF |
+| Cost | $6.99/unit |
+| Function | Automatic USB/battery switching with near-zero voltage drop |
+| Pros | Seamless power switching, no power loss |
+| Cons | Expensive, adds complexity |
+
+### Adapted Option: Schottky Diode
+
+| Spec | Value |
+|------|-------|
+| Part | SS14 |
+| Cost | $0.02/unit |
+| Function | Simple OR-ing diode on battery path |
+| Pros | Cheap, simple, reliable |
+| Cons | ~0.3V drop on battery, slight power loss |
+
+**Decision: Use Schottky diode**
+
+**Trade-off Analysis:**
+- Saves: **$6.97/unit** ($6,970 at 1000 units)
+- Cost: ~0.3V voltage drop reduces usable battery capacity by ~8%
+- For a 3.7V LiPo → 3.4V after diode → still above 3.3V LDO dropout
+
+**When to reconsider:** If battery life is critical and every mAh matters, revisit LTC4412.
+
+---
+
+## Decision 3: Haptic Driver
+
+### Original Option: DRV2605L (Full-featured)
+
+| Spec | Value |
+|------|-------|
+| Part | DRV2605LDGSR |
+| Cost | $1.15/unit |
+| Interface | I2C |
+| Features | Auto-resonance, 123 built-in effects, closed-loop |
+| Pros | Best haptic quality, easy software integration |
+| Cons | Higher cost, requires I2C setup |
+
+### Adapted Option: DRV2603 (Open-loop)
+
+| Spec | Value |
+|------|-------|
+| Part | DRV2603RUNR |
+| Cost | $0.55/unit (est.) |
+| Interface | PWM + EN pin |
+| Features | Open-loop drive, basic operation |
+| Pros | Cheaper, simpler PWM control |
+| Cons | No auto-resonance, must tune frequency manually |
+
+### Alternative Considered: ERM Motor + Transistor
+
+| Spec | Value |
+|------|-------|
+| Parts | 2N7002 + ERM motor |
+| Cost | $0.15/unit |
+| Interface | GPIO + PWM |
+| Features | Simple DC motor drive |
+| Pros | Cheapest, simplest |
+| Cons | Buzzy feel, slower response, less precise |
+
+**Decision: DRV2603 (middle ground)**
+
+**Trade-off Analysis:**
+- DRV2605L → DRV2603 saves: **$0.60/unit**
+- Loses: Auto-resonance tracking, effect library
+- Keeps: LRA support, decent haptic quality
+
+**When to reconsider:**
+- Need premium haptics → use DRV2605L
+- Need cheapest possible → use ERM + transistor
+
+---
+
+## Decision 4: TCXO Selection
+
+### Original Option: EPSON X1G0042110003
+
+| Spec | Value |
+|------|-------|
+| Part | X1G0042110003 |
+| Cost | $2.50/unit |
+| Stability | ±2.5ppm |
+| Pros | High quality, well-documented |
+| Cons | Expensive, extended part on LCSC |
+
+### Adapted Option: YXC/TXC Generic TCXO
+
+| Spec | Value |
+|------|-------|
+| Part | YXC YSO110TR or TXC 7Q-32.000MBG-T |
+| Cost | $0.45-0.80/unit |
+| Stability | ±2.5ppm |
+| Pros | Much cheaper, same specs |
+| Cons | Less documentation, verify footprint |
+
+**Decision: Use cheaper TCXO**
+
+**Trade-off Analysis:**
+- Saves: **$1.70-2.05/unit**
+- Risk: Slightly less documentation, may need footprint verification
+- Mitigation: Order samples first, verify SX1262 lock and frequency accuracy
+
+---
+
+## Decision 5: Battery Charger IC
+
+### Original Option: MCP73831
+
+| Spec | Value |
+|------|-------|
+| Part | MCP73831T-2ACI/OT |
+| Cost | $0.50/unit |
+| Package | SOT-23-5 |
+| Current | Programmable via resistor |
+| Pros | Small, accurate, well-documented |
+
+### Alternative Considered: TP4056
+
+| Spec | Value |
+|------|-------|
+| Part | TP4056 |
+| Cost | $0.15-0.30/unit |
+| Package | SOP-8 (larger) |
+| Current | Programmable via resistor |
+| Pros | Cheaper, thermal regulation |
+| Cons | Larger footprint |
+
+**Decision: Keep MCP73831**
+
+**Reasoning:** Small form factor matters for 46x62mm board. $0.20-0.35 savings not worth larger footprint.
+
+**When to reconsider:** If board size increases or cost is extremely tight.
+
+---
+
+## Decision 6: Component Sourcing Strategy
+
+### Option A: Authorized Only (DigiKey/Mouser)
+
+| Aspect | Value |
+|--------|-------|
+| nRF52840 @ 1000 | $3.83 |
+| SX1262 @ 1000 | $4.12 |
+| Total for both | $7.95 |
+| Risk | None - guaranteed genuine |
+| Lead time | Same day shipping |
+
+### Option B: LCSC (Authorized, China)
+
+| Aspect | Value |
+|--------|-------|
+| nRF52840 @ 1000 | $2.50 |
+| SX1262 @ 1000 | $1.30 |
+| Total for both | $3.80 |
+| Risk | Low - authorized distributor |
+| Lead time | 5-10 days from China |
+
+### Option C: Brokers (Utsource, AliExpress)
+
+| Aspect | Value |
+|--------|-------|
+| nRF52840 @ 1000 | $2.36 |
+| SX1262 @ 1000 | ~$1.20 |
+| Total for both | ~$3.56 |
+| Risk | Medium - verify authenticity |
+| Lead time | 7-14 days |
+
+**Decision: LCSC as primary source**
+
+**Trade-off Analysis:**
+- LCSC vs DigiKey saves: **$4.15/unit** on just these two ICs
+- At 1000 units: **$4,150 saved**
+- Risk is low (LCSC is authorized)
+- Trade-off: Longer lead time, must plan ahead
+
+---
+
+## Decision 7: Antenna Implementation
+
+### Option A: U.FL Connector Only
+
+| Aspect | Value |
+|--------|-------|
+| Cost | $0.50 |
+| Pros | Flexible, use any external antenna |
+| Cons | Requires separate antenna purchase |
+
+### Option B: PCB Antenna Only
+
+| Aspect | Value |
+|--------|-------|
+| Cost | $0 (trace on PCB) |
+| Pros | No extra parts, integrated |
+| Cons | Fixed performance, takes board space |
+
+### Option C: Both U.FL + PCB Antenna (with jumper)
+
+| Aspect | Value |
+|--------|-------|
+| Cost | $0.50 + 0Ω resistors |
+| Pros | Maximum flexibility |
+| Cons | Slightly more complex |
+
+**Decision: Both (Option C)**
+
+**Reasoning:** U.FL for testing/certification, PCB antenna for production if adequate. 0Ω resistor jumpers allow selection.
+
+---
+
+## Decision 8: User Interface
+
+### Buttons
+
+| Original | Adapted |
+|----------|---------|
+| 2 buttons (User + Reset) | 2 buttons (kept) |
+| Cost: $0.40 | Cost: $0.40 |
+
+**Decision: Keep both buttons**
+
+**Reasoning:** $0.20 savings not worth the usability trade-off. Reset button essential for:
+- Quick reboot during development
+- User recovery from crashes
+- Bootloader entry (hold reset + power)
+
+### LEDs
+
+| Option | Cost | Decision |
+|--------|------|----------|
+| 2 LEDs (Green + Red) | $0.06 | Keep |
+| 1 RGB LED | $0.15 | Not chosen |
+
+**Reasoning:** Two discrete LEDs are simpler and cheaper than RGB.
+
+---
+
+## Summary: Total Optimization Savings
+
+| Decision | Original | Adapted | Savings/Unit |
+|----------|----------|---------|--------------|
+| Power management | LTC4412 | SS14 Schottky | $6.97 |
+| Haptic driver | DRV2605L | DRV2603 | $0.60 |
+| TCXO | EPSON | YXC/TXC | $1.70 |
+| Sourcing (MCU+Radio) | DigiKey | LCSC | $4.15 |
+| Button | 2x | 2x (kept) | $0.00 |
+| **TOTAL** | | | **$13.42** |
+
+### Impact at Volume
+
+| Volume | Savings |
+|--------|---------|
+| 100 units | $1,362 |
+| 1,000 units | $13,620 |
+| 10,000 units | $136,200 |
+
+---
+
+## Decisions NOT Changed (Kept Original)
+
+| Component | Reason Kept |
+|-----------|-------------|
+| nRF52840 MCU | No viable alternative for BLE+USB+GPIO |
+| SX1262 LoRa | Best in class for sub-GHz LoRa |
+| MCP73831 charger | Small footprint worth the cost |
+| AP2112K LDO | Cheap, reliable, right specs |
+| USB-C connector | Standard, future-proof |
+| LRA motor type | Better haptic feel than ERM |
+
+---
+
+## Future Optimization Opportunities
+
+If further cost reduction needed:
+
+| Opportunity | Potential Savings | Trade-off |
+|-------------|-------------------|-----------|
+| Remove haptics entirely | $1.55/unit | Lose haptic feedback |
+| Use ERM instead of LRA | $0.50/unit | Buzzy feel, slower |
+| Single LED | $0.03/unit | Less status indication |
+| Remove test points | $0.10/unit | Harder debugging |
+| Smaller USB-C (6-pin) | $0.30/unit | No USB data, power only |
+| Remove expansion header | $0.20/unit | Less flexibility |

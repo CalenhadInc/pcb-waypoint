@@ -1,0 +1,4991 @@
+(kicad_pcb
+  (version 20241229)
+  (generator "populate_pcb_from_docs")
+  (generator_version "1.0")
+  (general
+    (thickness 1.6)
+    (legacy_teardrops no)
+  )
+  (paper "A4")
+  (layers
+    (0 "F.Cu" signal)
+    (31 "B.Cu" signal)
+    (32 "B.Adhes" user "B.Adhesive")
+    (33 "F.Adhes" user "F.Adhesive")
+    (34 "B.Paste" user)
+    (35 "F.Paste" user)
+    (36 "B.SilkS" user "B.Silkscreen")
+    (37 "F.SilkS" user "F.Silkscreen")
+    (38 "B.Mask" user)
+    (39 "F.Mask" user)
+    (40 "Dwgs.User" user "User.Drawings")
+    (41 "Cmts.User" user "User.Comments")
+    (42 "Eco1.User" user "User.Eco1")
+    (43 "Eco2.User" user "User.Eco2")
+    (44 "Edge.Cuts" user)
+    (45 "Margin" user)
+    (46 "B.CrtYd" user "B.Courtyard")
+    (47 "F.CrtYd" user "F.Courtyard")
+    (48 "B.Fab" user)
+    (49 "F.Fab" user)
+    (50 "User.1" user)
+    (51 "User.2" user)
+    (52 "User.3" user)
+    (53 "User.4" user)
+    (54 "User.5" user)
+    (55 "User.6" user)
+    (56 "User.7" user)
+    (57 "User.8" user)
+    (58 "User.9" user)
+  )
+  (setup
+    (pad_to_mask_clearance 0)
+    (allow_soldermask_bridges_in_footprints no)
+    (pcbplotparams
+      (layerselection 0x00010fc_ffffffff)
+      (plot_on_all_layers_selection 0x0000000_00000000)
+      (disableapertmacros no)
+      (usegerberextensions no)
+      (usegerberattributes yes)
+      (usegerberadvancedattributes yes)
+      (creategerberjobfile yes)
+      (dashed_line_dash_ratio 12.000000)
+      (dashed_line_gap_ratio 3.000000)
+      (svgprecision 4)
+      (plotframeref no)
+      (viasonmask no)
+      (mode 1)
+      (useauxorigin no)
+      (hpglpennumber 1)
+      (hpglpenspeed 20)
+      (hpglpendiameter 15.000000)
+      (pdf_front_fp_property_popups yes)
+      (pdf_back_fp_property_popups yes)
+      (dxfpolygonmode yes)
+      (dxfimperialunits yes)
+      (dxfusepcbnewfont yes)
+      (psnegative no)
+      (psa4output no)
+      (plotreference yes)
+      (plotvalue yes)
+      (plotfptext yes)
+      (plotinvisibletext no)
+      (sketchpadsonfab no)
+      (subtractmaskfromsilk no)
+      (outputformat 1)
+      (mirror no)
+      (drillshape 1)
+      (scaleselection 1)
+      (outputdirectory "")
+    )
+  )
+  (net 0 "")
+
+  (gr_rect
+    (start 0 0)
+    (end 46 62)
+    (stroke
+      (width 0.1)
+      (type solid)
+    )
+    (layer "Edge.Cuts")
+    (uuid "f8ca10de-4e2b-4b4d-9db8-9ecace30753c")
+  )
+
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "15f9a54b-dd4c-4120-abd5-01398d76c748")
+    (at 26.000000 10.000000)
+    (property "Reference" "C1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "ed77d819-4f85-46b2-b68f-379f489a01b7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "22b11570-4bd0-4628-a381-acf7b8ec58e8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "7cff74f6-a046-4c3d-900f-833170a64707")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "f29c7cfd-a1e9-4358-bb80-88ae088ad9ab")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "cd16865d-43a3-4678-8dd6-9f42e9f1c642")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "1fef0017-4e41-4a72-93f7-5ccf87904503")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0603_1608Metric"
+    (layer "F.Cu")
+    (uuid "1380b932-0d0d-4d82-8720-98a7aa277e6c")
+    (at 40.000000 10.000000)
+    (property "Reference" "C10"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "f5b582b7-eca0-4b5f-9dae-ce754007ad31")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "4.7uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "60e8c8c7-9e7f-4dda-80dd-00a04c3e06c7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "7f7e8604-4186-41cf-8202-6f4003389c24")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b68faca1-654b-4b45-acd3-45d73e118222")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "f5968d21-90b3-4010-a3c8-76c64bb4bbfc")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "d6783f57-c4af-4e75-a8a5-52dfe9c5db03")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "ad5d72ee-c52c-4fc9-9998-0523627275c9")
+    (at 14.500000 17.000000)
+    (property "Reference" "C11"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "7cbdb227-abc0-4acd-97a9-065858a5b0d4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "18pF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "7674ee06-7779-42d3-85ad-1b551fbd7c76")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "80871e1f-9ae7-4c7e-808f-53d095d46b51")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d307a71f-5944-4661-912c-f1efe937981c")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b1c04bd7-e780-4b67-8765-f3c3721dd3d3")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "d42e5ef0-0d79-40d0-b408-a4ee17c980dc")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "c5f7db05-db13-4033-a61f-65aaeaa8aad0")
+    (at 14.500000 19.000000)
+    (property "Reference" "C12"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "6dd2888b-a54d-4db6-b477-aecc009c2a33")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "18pF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "32698562-5f31-444a-bac9-6459e41e6975")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c4c9537f-82c0-4d2f-b357-7c25c7e06abd")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8bae52f8-c5c1-4d53-830e-75b349db9a1a")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "7d9f3261-a29f-49a0-a861-d93668c8bca0")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "b46307c0-f6c8-4f42-9260-fbbd5bd66211")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "64585a27-e42d-4f46-b807-3714789e9351")
+    (at 14.500000 11.000000)
+    (property "Reference" "C13"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "0677f079-d582-444f-8689-79b1f39edd23")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "12.5pF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "b8efc21a-4150-4f28-8988-ae53f7ad84b0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "9f29d638-ebc2-4c76-ae7b-c3dc74c96926")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d5266f27-6a49-4dae-8415-6177681daf17")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9d5a6d44-a3e3-49cc-a281-13c95e95abe7")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "b3c14ece-69de-4b70-bdd6-36e14baead22")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "b05ee790-a66e-4bf1-9c03-089115278ed6")
+    (at 14.500000 13.000000)
+    (property "Reference" "C14"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "e55406c2-203a-4f49-89aa-5a34d58b23ad")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "12.5pF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "e2ce8fc0-e81b-43f7-88da-a64b7894c19c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "0e20f771-7df5-41e4-9dd6-ca8ce08fa972")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9f7a33df-2284-4b5e-b839-68478c0c1421")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "2a324c71-62f2-48fa-aa51-a81c021f538f")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "f34d7537-beaa-4615-a1d4-4ae4aedac086")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "b6e47b2e-06ea-405c-a64a-c2362dafe0fb")
+    (at 8.000000 30.000000)
+    (property "Reference" "C15"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "f9da3241-fe31-4362-a153-7ab8332f2da9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4b6a8548-1cd8-4d4c-8cc9-2217d99d71a3")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "74fbe959-eea7-46e1-8a12-a68b1d234e78")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "287f849a-58bf-4d46-bc85-4aef4fdde561")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "5bd17e34-887a-4914-934e-0ee63acca884")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "632627fc-e7ff-4904-b2f7-593858ef236a")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "b68f6673-f0cd-4b0c-ad83-342447c3c294")
+    (at 8.000000 18.000000)
+    (property "Reference" "C16"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "779eba6b-ba8a-4568-9f80-8fc2ede6f5a1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "3d7ac8f3-da15-4ea8-adc3-922a30fa35c1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "b2252e3f-0abe-4991-84a1-73ce657bbee4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "cb704f99-855f-4f8e-89cf-9b3dd069f0a1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e39e73c1-4696-42d6-aab0-1cbff90eadbf")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "8c6bce99-b4b9-4e04-8c83-6ad855c67d65")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "87d2b7c5-8da9-4f38-a746-43ad8dad7e17")
+    (at 20.000000 35.000000)
+    (property "Reference" "C17"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "b9b8f64c-1893-4de8-b981-3699a0d6003f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "2.2pF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "ef536b70-d6ff-434e-86fb-6de2b15b3daa")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "eb806e3e-f789-4e29-b554-f60d0faa06db")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "83635582-db92-4bc5-a1f2-a124644802c3")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "65b3d675-7de1-48d2-9f91-32e703684158")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "685e42bf-9455-48c8-80df-cb0f651d597f")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "f80b0fbe-1118-48a9-8f6b-bc91c6d90abe")
+    (at 12.000000 18.000000)
+    (property "Reference" "C18"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "ae05dbd8-eb28-43da-8326-213f6f9bc6d2")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "304d9d99-e705-4e99-903b-e6ce9c2e27d8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "ccc444a5-44b4-4c69-9328-dfb4ba67b11a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "3e5cb01f-f953-4002-a952-468c13f3f9ce")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "5129ec8e-1550-40ce-a201-6197f1ce1f13")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "3beb9be7-3b33-4498-b9ee-0ab828292c86")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "d6d80ebe-84fc-4ea1-b17b-e95386043116")
+    (at 12.000000 30.000000)
+    (property "Reference" "C19"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "33428178-1b78-4eaf-a80b-6d6dc7127d56")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "505846f7-d36c-4052-9b99-7844dd9bf4d4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "d1adb7b7-a2f0-4ad8-be2f-289567dfe36d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "bfac6d4a-1e92-4e34-8a03-555ce221997f")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b6de4ce8-22f5-4687-886a-26ad9a1d4974")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "0d0dab1f-5e1f-4c13-955e-8624bb0ae49a")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "07a4490b-f6ce-467e-91d5-5105fa031efc")
+    (at 30.000000 10.000000)
+    (property "Reference" "C2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "187a2c1f-f515-48c1-b610-271c7b59fd22")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "f8b4f90f-5faa-4a0d-8a81-b443641b17c6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "ace699ad-759e-47e9-af1e-86e7e77d88cd")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "a0fa7f61-3988-4973-ac70-eb69ec3c5018")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "21195898-b9ea-48a1-ba57-faa9ea7339c2")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "2a6d92d2-e357-4038-80fe-033d8e024c2c")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "45f161bc-b9a9-422d-be77-f3e8b3decf30")
+    (at 10.000000 12.000000)
+    (property "Reference" "C20"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "877266cf-7842-4478-adee-8b087dd30736")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "39807714-8701-4e1d-866d-4c6d3bcbbb60")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "5ab33581-24f4-4db1-a24a-65072ac6ead4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "978ecc1b-7a3a-4354-8108-0f24092205fc")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b1e558ec-d8eb-45a6-aa86-e16b2ee12b23")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "2f29647d-83e2-47d4-bd06-c07df8d2bc06")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "f3702f52-75e9-4dd8-9f17-61117900736e")
+    (at 10.000000 18.000000)
+    (property "Reference" "C21"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "57492bb5-0202-4094-b741-1c6e4595314f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "2d5ac909-513e-4678-b875-236263bd0c6e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "bc04624e-e70f-4557-8dd3-771800059ece")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b85319a5-793f-459c-81d2-0c80242018e1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e78074c6-aa03-4d02-94d2-512b2fc93ed2")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "7302057b-e4b7-4dbe-ae04-c7a61294447b")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "065bb253-5181-4305-a3ae-bc805787da98")
+    (at 12.000000 12.000000)
+    (property "Reference" "C22"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "cd0a784c-55f3-46de-ad01-7439178e34d6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "5de6f01e-ba82-4353-bec8-f971abf992fb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "06a5d730-9074-4221-a8f5-ea5cbc73534b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "29c9e48a-6eda-4906-8dba-5e1447dbc714")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "0af81207-c3dd-43a3-a8d1-1429a0cd872f")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "5aea7456-d818-4185-a768-b2895e6862b8")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "575daa73-86c7-40b3-8625-412920eccd60")
+    (at 28.000000 7.000000)
+    (property "Reference" "C3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "c0a69ef4-c076-498d-861b-93a4cab5585d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "be9b3268-fbbe-4e48-9041-7a2d35207848")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "eb96df7c-3979-4424-8252-1bd3ec5d75b2")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b4df4755-38cb-40bb-9325-5a853bdbc5cf")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "42d73c83-b6bd-4efb-807c-72344e5ab9e1")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "58dfa042-ece2-424e-9ea7-b6617ff0ed7e")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "63fbe2ab-ed23-4d55-8e1c-77706bdb7945")
+    (at 8.000000 12.000000)
+    (property "Reference" "C4"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "3dcb58cf-c159-4df4-863e-bf81b1302811")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "52cd8778-e731-4cec-924d-009106f96fc9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "d728d57a-d4dd-427d-9e50-6af500ddf35a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c2d208b0-b1e3-422b-8034-69845d2af5f2")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "170efb3d-0c96-4a34-ae15-404e5848af8d")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "205d09f6-3020-4489-967d-4f543056d3cf")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "5cd55982-d663-4377-9d69-0165d261dceb")
+    (at 8.000000 16.000000)
+    (property "Reference" "C5"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "bb76f2d3-3ef5-4a51-9aaf-ad460d85fd46")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4f628d37-9a39-4124-9b55-350c3cffbb57")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "3b2d26cb-db42-4c38-93b9-e3f8592ce905")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "de64aabf-cdf3-47e2-b2a7-ecea37bd2ae5")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "ca04f887-59fa-44b8-9384-1e7a93f2122c")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ed609c93-92a2-410f-a39d-f9083f98021d")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "5b2326e1-7313-4de1-9284-5d5c47507815")
+    (at 12.000000 16.000000)
+    (property "Reference" "C6"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "1b368ab4-778a-4a83-8d38-3347707173cb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "c19fff83-d7b1-414d-9899-e912bf9a2976")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "92ab08f5-166b-45fb-9c2a-e33edebf95a6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d405d239-3d7a-44b7-9365-ffb5a8f85caa")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "37561640-fef4-49be-bcc1-636fc29ffd8b")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "1a6c649b-d6af-4ad9-992f-2b6b2c2ee64a")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "53e54886-6803-412a-90ae-3a640e9814b7")
+    (at 8.000000 14.000000)
+    (property "Reference" "C7"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "b88c5468-d106-4b9d-afec-5e4302d5f4b6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "0e6ba804-b1a6-483e-a16b-5f3f62cd6a3a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "b32b8483-54ea-4c58-949b-b1da1c334dea")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9b5bdd6e-d0b1-4f6e-83a6-2102334063f5")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "87f967fe-96a6-4088-b2fa-74ce2f4a9b2b")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "6b3452e2-4ac4-41a0-9187-a617602333e4")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "f71d0c3d-ac44-4efa-9e6a-8c75a8b4bd1c")
+    (at 12.000000 14.000000)
+    (property "Reference" "C8"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "2c69be9f-12ff-4726-8692-eee21ba9c5c0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "100nF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "2175a492-9817-425e-9bde-4cd2245fac1a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "84dcb63b-20e8-4d93-9090-d69bd4b8e72e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8f391bef-d8d9-40df-a7d9-8d5292d28f8b")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d6ec4390-f3ed-4b37-8cc6-17bb40362272")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "e870d192-a993-484d-91a2-774422a48010")
+    )
+  )
+  (footprint "Capacitor_SMD:C_0603_1608Metric"
+    (layer "F.Cu")
+    (uuid "4084566c-2c6e-4204-9af9-58e04ee35eee")
+    (at 34.000000 10.000000)
+    (property "Reference" "C9"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "4bfb765f-045c-4420-a1fd-78dc43404636")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "4.7uF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "ebee929b-a520-4365-a6fe-468d2ff5fbed")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "b8555b44-796b-4fd0-aae0-61a905b2ed26")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "29bbfc89-5250-4492-bf43-051ceb9b11e1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "52e7ccc5-3b01-405d-ac33-fdc807b100f9")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "e0daf111-5001-4bcc-b214-7da737af7282")
+    )
+  )
+  (footprint "Package_TO_SOT_SMD:SOT-666"
+    (layer "F.Cu")
+    (uuid "ade6af07-dfd2-4a01-891f-90dba504cf91")
+    (at 32.000000 3.000000)
+    (property "Reference" "D1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "cb926d79-c77d-4051-a871-7fbce4d8e80d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "USBLC6-2P6"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "34325131-829b-4b3d-afe4-8aa21b6a7504")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-666"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "9d3a4802-954c-4cfc-9663-ab31f936b960")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8ecd69fb-94e4-4c93-8bfa-a8fd6fec1c85")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "16968533-c9bd-4e36-8213-39cdd54218f1")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "3c48ef6e-4a7b-412e-a66f-adf060179e42")
+    )
+  )
+  (footprint "Diode_SMD:D_SMA"
+    (layer "F.Cu")
+    (uuid "92ad127d-ca82-4cff-8bbf-326b36833b3a")
+    (at 24.000000 7.000000)
+    (property "Reference" "D2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "5bdf5a0c-d16b-489e-9c55-78d195824b93")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "SS14"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "a28a51bc-7c89-4c9a-91b4-135c039c4db8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Diode_SMD:D_SMA"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "74677ceb-e2b9-4921-88d1-cf05aaacc352")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "aee91fd5-474a-4694-8cdd-bab41cbb99d8")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b78b3385-8f11-4dd9-b3f8-927d00a937f5")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "cd55cec4-6296-4cfd-a882-e181b720ef7e")
+    )
+  )
+  (footprint "Diode_SMD:D_SOD-123"
+    (layer "F.Cu")
+    (uuid "9afaacea-056d-4c5a-89b9-c1b98bfd4ea6")
+    (at 8.000000 55.000000)
+    (property "Reference" "D3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "05f61331-f50b-4450-829d-6c7b68c581fc")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1N4148W-E3-18"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "38d24d68-d43e-42d2-8861-23a4cc729918")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Diode_SMD:D_SOD-123"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "56c1551b-c272-4f46-a3ef-2bdac30dcd3c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "666cb55a-44b5-4f7d-9f5a-49ea77c49404")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "a1354358-bcdc-4a4a-8de7-43b9ad7c12b7")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "497ad2e0-4886-41ad-8c7e-1a7a3abf2a03")
+    )
+  )
+  (footprint "Connector_USB:USB_C_Receptacle_GCT_USB4105-GF-A"
+    (layer "F.Cu")
+    (uuid "1e3dc1a8-79ff-4d92-8373-145ac74c241c")
+    (at 35.000000 0.000000)
+    (property "Reference" "J1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "142e477b-ff3a-4f7c-af79-023a39866b3a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "USB4105-GF-A"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "be049ff8-410b-4b27-afcb-d5d8166e34fa")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4105-GF-A"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "010fcf19-5f82-4ad3-a7df-dae67116bc20")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "ae2d01c1-4c86-46a3-b8f1-818540381287")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8304dd72-7328-4423-ae40-ba8becf5b459")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "4bd7b0e3-81d2-43fb-9af8-1494da2eb4f0")
+    )
+  )
+  (footprint "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+    (layer "F.Cu")
+    (uuid "5c301ff8-4854-43da-8766-f4d6762a0a16")
+    (at 46.000000 15.000000)
+    (property "Reference" "J2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "42789139-02ad-4014-a626-1e1763b795bc")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "B2B-PH-K-S"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "2937ec58-365b-46a4-87a3-b6f31b0a26b5")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "cdc813ad-6042-47b4-a6fb-74c719ad17c9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "af461556-4db8-4e02-914c-fedaad878eac")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "67d4744d-9ec0-4d90-b3f3-6de353c7d650")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "20bddc87-3427-4f64-b91e-21df9088e78f")
+    )
+  )
+  (footprint "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical"
+    (layer "F.Cu")
+    (uuid "57dcf240-4bae-4e05-a558-25c5a8b2e2ff")
+    (at 46.000000 35.000000)
+    (property "Reference" "J3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "d08456e4-f362-44a2-8fd3-6ef55e29c29a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "U.FL-R-SMT-1(10)"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "2d354b91-0ac6-4a4f-9774-a6d5dba6bb88")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "0170bdcc-66b5-4607-a680-32f68b0fd172")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e0bde434-4711-442f-8fce-b7be9e997f70")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9f86fd8e-cd64-4ca9-b0fe-059169872ae8")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "d46160ff-34ac-4496-bf36-5c8c22c6b187")
+    )
+  )
+  (footprint "Connector_PinHeader_1.27mm:PinHeader_2x03_P1.27mm_Vertical_SMD"
+    (layer "F.Cu")
+    (uuid "c06e319a-1a20-4c93-83c6-56dac9b0f4b7")
+    (at 0.000000 48.000000)
+    (property "Reference" "J4"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "c6e85ee6-4f67-41f5-843b-39070acfe7af")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "20021121-00006C4LF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "07066089-9861-4806-9890-1f8276f643df")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_2x03_P1.27mm_Vertical_SMD"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "f9fdc99a-73bd-48bc-a0dd-0575eef7c9c9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "23ae19f1-071d-47b7-b1cd-d0bb8d973d0d")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "26f66779-660f-4a23-9af6-d622ee375131")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "6633408d-b1dc-430a-bd29-f7853794fa93")
+    )
+  )
+  (footprint "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
+    (layer "F.Cu")
+    (uuid "a335cdf5-666b-4606-9da6-d7666e4853fc")
+    (at 10.000000 62.000000)
+    (property "Reference" "J5"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "1e4edfb6-a734-40f4-804d-386a175a62ce")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "640456-8"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "1d0878b3-477f-40c5-980d-3779d1883746")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c5c801b4-d867-4c64-a096-017c5d5782be")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9d009320-220a-4f1e-9cbb-f09e9c1d0ed7")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "71c59abe-01f4-41a2-a120-83c97d3287ef")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "57937df1-d08e-4d80-b4f2-1e13df656722")
+    )
+  )
+  (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+    (layer "F.Cu")
+    (uuid "173a1d9e-efd3-4235-a9c2-3ae6274bf6be")
+    (at 15.000000 52.000000)
+    (property "Reference" "J6"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "306edb71-d067-4c24-8b02-587c7479196c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "2.54-2P-LT"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "c917225b-e55c-4421-81ab-18fdf2bc58ea")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "87a40454-ee6e-4246-9325-6861b7c59848")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "80c37e71-b5a3-4b65-9b20-b4956fce3da1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "22d73053-12c9-4fd2-a29c-b77350ce1355")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ef4d90c7-9a44-4ee0-92fb-852423b11d91")
+    )
+  )
+  (footprint "Inductor_SMD:L_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "396ba7a2-f30a-41b1-b688-036639e27224")
+    (at 18.000000 35.000000)
+    (property "Reference" "L1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "f54e4f2e-b3da-4189-a625-8f4413019dc8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "4.7nH"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "c6e599c7-0444-4786-8c4d-939a65e945b0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Inductor_SMD:L_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c7ba8be7-2631-4ca0-b7fc-57f3df351978")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "bc2b6bd1-bb5e-4259-bf24-e76552f1bc8e")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "2f4ff071-024f-450b-8e39-670cbacb7927")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ceebfebb-f32b-423f-9c51-1ffce57e6f03")
+    )
+  )
+  (footprint "LED_SMD:LED_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "76ee2b70-13cb-4518-8b19-c22312d844cb")
+    (at 18.000000 50.000000)
+    (property "Reference" "LED1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "47c34963-78a7-4145-8e79-67377c8f4fc8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "LED"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "e824dbaf-e877-4785-b1ac-713783f50a78")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "d163352f-02b1-4083-9432-e8b826ca24f4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "60076ed3-4574-4802-98dc-30937df61df0")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c37740ef-5cd5-4a98-822a-dda3c41e6a40")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "35d18cc7-ef40-472f-ae78-f903d41f7ebf")
+    )
+  )
+  (footprint "LED_SMD:LED_0805_2012Metric"
+    (layer "F.Cu")
+    (uuid "b248f9c5-f7b0-44ec-bd7b-16e9db21d09e")
+    (at 22.000000 50.000000)
+    (property "Reference" "LED2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "9df3e9d3-ad1a-422f-a248-2b4eaf3938cb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "LED"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "d50a63ce-c49c-48d7-bfe2-b496650fbd4e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "LED_SMD:LED_0805_2012Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "a1141d20-c481-4fd2-8d7d-fbf3fc3a484c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8e7081b4-3655-4e9d-9992-8d41236b98d6")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "174e5663-cf95-4e83-bfc8-78184dc60968")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "c262dd29-5867-4ba3-8fdc-e537fa136b29")
+    )
+  )
+  (footprint "Buzzer_Beeper:Buzzer_CUI_CPT-9019S-SMT"
+    (layer "F.Cu")
+    (uuid "d587d1fb-2aae-4266-9a34-a41c15bce164")
+    (at 5.000000 55.000000)
+    (property "Reference" "LS1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "d311e460-2371-4aa5-b64d-50e090ee551a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "MLT-5020"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "fd2fa07c-28de-4799-be93-00ff24f64ad9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Buzzer_Beeper:Buzzer_CUI_CPT-9019S-SMT"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c2ab5fd2-69d1-469a-a106-5e9b4aba9ec8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "1c7dd04c-4f98-4ccc-a3f1-a7a4430cc3a0")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "512e381e-e8aa-49f4-b651-191af631a548")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "33ae1e29-6ac3-4fa4-9394-b20c22c728d7")
+    )
+  )
+  (footprint "Package_TO_SOT_SMD:SOT-23"
+    (layer "F.Cu")
+    (uuid "af56a079-42a3-49d0-99ca-dcef02fd5b10")
+    (at 8.000000 52.000000)
+    (property "Reference" "Q1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "3f97c402-c62f-4e3d-9f55-4b4b4f25905c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "MMBT3904TT1G"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "236fe130-2aae-4a89-bd3f-a8bb3e892816")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "78a2e95e-9318-452b-994a-8d8cdf0d0df0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "361d9e87-4f43-47c2-a1d9-4192b4c35fca")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "53e9009a-0a38-4866-9d11-9e215d16a9f0")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "7c16f269-31ac-47b4-adc9-8d300fcfdf9a")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "7027ae8e-8800-4d26-ab60-1b9a6df73ec0")
+    (at 36.000000 12.000000)
+    (property "Reference" "R1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "1278937e-0849-4a1f-b2e0-e92be238a661")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "2k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "917c3d54-fbaa-46b6-a865-1085c32dcea6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c119cf12-814b-46a7-9bd3-f25fb50445f7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "35504189-5f6d-460b-8648-afdda8f661be")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "fa6ffd26-f8c3-4030-8827-33bdeb1b5265")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "4a16b49c-1529-4bb7-9c50-eac653563c5e")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "958c6c46-ecfc-4ecd-a441-82bf37dfab1f")
+    (at 32.000000 12.000000)
+    (property "Reference" "R10"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "7220b52d-4c78-4d48-ac31-2d4cc928fa96")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "0R"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "c67fb1f0-57cc-4718-a8d2-6153d182a47b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "7b678237-9a65-4f6d-b8aa-4c16cd188df2")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "80beae68-e783-46e6-a98f-988ec8219dcf")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e7a6bc20-e7ae-4ce6-92f9-9eba4ab69699")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "4ed416a4-8274-440b-970e-224c39de8e9c")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "dd087639-4a57-48b4-8cc3-45063c6f55e2")
+    (at 18.000000 50.000000)
+    (property "Reference" "R11"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "a7165d61-4a40-49a3-88b2-d5c3546d985a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4a961aad-abb5-4853-ba5d-554a64d1e71b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "81fdf499-3e4a-417e-9e0d-ef1c519c6e83")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "349ebcf3-b7be-41ac-ba0d-865f771f38d5")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "b0e4bbbf-224e-4960-90a2-a738a8816b13")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "61a66a0c-1dbd-4a91-a2b4-6b09d0f1a869")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "e10b927c-2b48-4163-aeab-9204e2052bdc")
+    (at 22.000000 50.000000)
+    (property "Reference" "R12"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "c1f024d2-76e6-4ff4-a568-4ef9dbbd94e1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "ee4fd5da-e82e-46e4-9f5c-59baa698439b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "3508caef-14bd-45cf-994b-94827c1922a8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "466de30c-1d3d-4684-bfb6-e0b4e4358363")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "ff09d30c-fbed-4c1e-9c5f-1f4cdfa4bdc6")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "c83edfb5-f38b-4173-a181-58965d0d284f")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "affb648a-2f6e-498a-af31-af8d19e67530")
+    (at 25.000000 52.000000)
+    (property "Reference" "R13"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "cdc234cd-97fb-4ebd-97cb-998537e3679c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4e43bc30-28a8-433a-ae04-670b321031c4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "4089e2fb-fa91-4cc1-8972-72b532066eab")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e0f659c8-61d4-4d7e-b9e4-c2d4810e41c1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "1bf3bd4f-fd87-423b-a285-e303d1ef6122")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "5868f194-46cf-4104-b225-865feb02ceb6")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "582e23c0-d4d5-41d3-90c9-c391b4b7dad2")
+    (at 20.000000 32.000000)
+    (property "Reference" "R14"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "f6b488ff-64b5-4f80-8392-0ba394be8483")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "4.7k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "73a1b0e5-b78f-4a05-a38f-f2104f7d0f4a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "00bce452-2355-44df-a008-493f24d7eec0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "2eb3a34f-d0fe-4f46-a5c1-b60b884bf00a")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "a616d113-5045-4fc4-b544-ba99e695108f")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "f776cf68-152f-42fb-9573-0dbeb91f2256")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "249e6c9c-a0a9-48e3-b654-8e5fb4595e6b")
+    (at 20.000000 34.000000)
+    (property "Reference" "R15"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "9d827669-831b-4537-b29e-608ada04785f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "4.7k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "aebffe18-52c6-46df-a173-3706d6c59237")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "3f15790b-423f-4aa4-acb1-40fae87e5bb9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "61a4b443-7b7e-4596-a148-f2f9f7af6e53")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "14028a89-dd34-45f9-aa20-bac35b9298ce")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "f4056f4d-cbf7-4328-8393-df780139e1d1")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "891ece90-50d7-407c-97a2-57d06e612d6d")
+    (at 30.000000 28.000000)
+    (property "Reference" "R16"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "c7ad8f0b-7728-4a41-8a57-0c3bf9916450")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "e9ef0293-a273-441c-8193-33800a0467b8")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "487d5e93-739d-417b-9e6f-3ea9c591b4f4")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "52eb6591-e072-4b30-be58-5f2668227219")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "93b91e79-6b98-4956-b6a1-f053208f985a")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "a77b84fb-a63f-4914-af0c-db630f88310f")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "9b9cfe95-1a80-4036-8ce4-cea46c8f15d1")
+    (at 8.000000 53.000000)
+    (property "Reference" "R17"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "13bc4c00-665d-4ae3-9a31-b1c84655e88d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "e9fda5ad-798f-4ba5-a00d-d1af2be43821")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "e35e086c-4608-400f-a3fe-35076dc214d6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "469fabba-e983-4b04-a394-9bdac501472f")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "3ab29fb0-5316-44cd-88e4-28129ad75e7d")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "5d870abc-a995-4c1f-b4fa-f111a71dadcc")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "ede157df-7926-4502-b575-3c72337b77af")
+    (at 18.000000 48.000000)
+    (property "Reference" "R2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "080102c6-8364-4a40-94c1-853d69ee8311")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "5d86f25b-4237-4c4c-be41-cd3518858f89")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "89fe4503-c0ff-4465-8db2-da56c38972d1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "1bdd497a-82c4-40c7-8814-8fa6ee88c2f2")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "14117b4a-d632-445f-b00c-ccc991a6fb37")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ffa2604a-aac5-4184-b244-6c38c22dfb0e")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "411b936d-1e7e-4b90-ab5b-6bb6fdeae6e0")
+    (at 22.000000 48.000000)
+    (property "Reference" "R3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "5c31f7a9-3895-4d43-8071-e32945bbb47f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "352db780-c008-446e-bf7a-b7fb424a0ce7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "3e9fb3fb-a97f-435e-98cc-418b5d9db50c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d57bc51b-f0e0-45ad-a66b-2bf66de2862c")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "12264ece-a395-4e49-aef2-6e6ad0809044")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "a8f738c0-8467-4c5d-94d7-b94333e30775")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "d3696c8c-1c16-422b-ab59-36c1b4c62072")
+    (at 25.000000 54.000000)
+    (property "Reference" "R4"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "8db0d0f1-b989-4f9c-a59d-2d7596e26f8d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "dde98716-b83d-4b2b-a565-af8c22cd9d3c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "fbc1f702-8cf7-4261-8b34-e792e2465a4c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "64089e86-6b47-4dfe-961c-20a12d74c685")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "60547635-920d-40d4-8797-1fa552577ca1")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "1074237b-a2c8-43f7-a7bd-fc98f2883a82")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "c3b488a1-48c1-49df-b9f0-98c445f41223")
+    (at 32.000000 8.000000)
+    (property "Reference" "R5"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "4a36490d-ff8c-40c6-b436-0769d89f351c")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "0R"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "8656b9eb-2e5f-4ff0-9a39-9e8fd5ad0562")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "af890721-bd2c-4fd1-a8c7-e5340c7ac8c0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "59b02598-b324-4eec-b2c1-e3302f76d565")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c5a08a37-65da-44ac-878c-d677de233a80")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "d2cee866-b6e9-4e35-9e87-0aae033b5db9")
+    )
+  )
+  (footprint "Resistor_SMD:R_0603_1608Metric"
+    (layer "F.Cu")
+    (uuid "cf31470a-79e7-4105-8dc7-9d2b667feba7")
+    (at 33.000000 2.000000)
+    (property "Reference" "R6"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "0818c037-ab36-4083-ac84-077e7cddace6")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "5.1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "abdf83ee-f9ed-4274-bff2-baeda32bfc98")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "ee8c2c84-5019-4f43-a006-663403d187a5")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "3589e2b0-65a2-4314-a0a6-849a890808e4")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "eba851d2-8ef7-4467-9b4b-0598c2d75cfa")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "808d2d67-bfa8-4e40-93a7-1de87f9fbf6b")
+    )
+  )
+  (footprint "Resistor_SMD:R_0603_1608Metric"
+    (layer "F.Cu")
+    (uuid "19521875-ec7e-4211-b300-2623d320fc09")
+    (at 37.000000 2.000000)
+    (property "Reference" "R7"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "b6e2a9e3-5052-4576-bd76-b1cca8d0c2aa")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "5.1k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "de3cf723-3da8-4313-8f37-1a2dd99c33b5")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "b375c649-8a34-41bc-8cc3-78892558d47f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "7aa552ff-f61f-444c-9711-ddf271b315fe")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "e6b990d0-c090-499f-9ada-383a143a3fe6")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "9e244aa0-ab37-4f47-a583-30be1e92bcd3")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "4453d68d-577b-4b68-92b1-d5d9945e7936")
+    (at 28.000000 26.000000)
+    (property "Reference" "R8"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "1b91f306-654e-41ff-85c1-ff9c25acfe1b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "10k"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "e0a04b50-9762-4469-a09e-042606af892a")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "eb176e8b-54de-42c2-a1a4-eabe11f88349")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "bd888de7-c117-4fa7-868d-4861569e971c")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "db19793f-3033-47d1-95b3-af523bfb10db")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "773d5ce6-e60f-4972-837d-a2423c02cbfe")
+    )
+  )
+  (footprint "Resistor_SMD:R_0402_1005Metric"
+    (layer "F.Cu")
+    (uuid "3097a6ec-56cd-4e21-9d74-23b985407b18")
+    (at 32.000000 12.000000)
+    (property "Reference" "R9"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "79941d6f-5ebf-4e31-9157-87d9714f6d60")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "0R"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "ba76b09f-aee6-4ee0-8e86-d87584a79749")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "b9118c54-1db1-4fe3-beeb-97d51100cefe")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c079d9b6-f0cd-4782-9dd1-12c815f641e1")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "4227dd95-5036-4d61-b2e6-ecdf3b5af575")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "427ddd48-7c20-43d3-9c30-0d80535772fa")
+    )
+  )
+  (footprint "Button_Switch_SMD:SW_SPST_B3U-1000P"
+    (layer "F.Cu")
+    (uuid "64172ae8-0ce8-498e-8344-bb650e98abbd")
+    (at 25.000000 52.000000)
+    (property "Reference" "SW1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "043d0156-144f-49c3-abdb-5d7589643bef")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "B3FS-1050P"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "72b83122-d673-4dc7-b293-243e2381d977")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Button_Switch_SMD:SW_SPST_B3U-1000P"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "017d9770-eb51-434f-910b-db19f97cb977")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "3c534a3f-b84b-44a8-b1fe-9423ff60ab64")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "2df845aa-ea07-4c73-a06f-a461ea77f87d")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "8852fb17-fff7-4e80-8837-f0f42e307a6f")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "7e793045-db13-456f-b79d-153af9a0d476")
+    (at 12.000000 48.000000)
+    (property "Reference" "TP1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "82c0f48f-8ffb-4547-81cc-42923cdae6af")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "9b6d9786-bfe8-4ba2-95bf-f0537119448b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "4ee7f03f-c0e2-493d-a778-ea42f9b1d782")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "ed40a451-62da-4265-abe3-3ee9cb54da28")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "13dac4e6-dd90-4e5d-9a52-1d0b0bb0769d")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "999a6a75-5c67-4005-9bc2-11f4f3523001")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "df6886a2-61da-46a2-9fa4-d85bdff8e198")
+    (at 22.000000 32.000000)
+    (property "Reference" "TP2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "6ced37b9-2dea-40da-b53c-41ce944b32a1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "b8003d8f-2097-4991-a6cf-a966231d323f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "0ea2ffb4-4e75-4c7a-89f0-534b7ff7a79e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "5396c1d6-c663-44d8-9d51-db79f89b0d04")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "33626ead-5f4a-4d60-a5ec-e25b1eb58eab")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "b57e9b9a-45f0-4091-ac4f-1657861f805e")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "bbadbfb4-cba7-4887-935b-4055885f3d5d")
+    (at 22.000000 34.000000)
+    (property "Reference" "TP3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "f901aa04-26a2-425e-b7c0-e9d08b489b2e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "90ee8736-37b6-4a7b-a1e2-b91290a9a159")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "aa7d7782-785a-4548-8e66-4e23ddf2ebb3")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "d2574683-a48b-4985-af0d-5ddb83a9a9b8")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "4c513102-780c-43c7-a3ec-4efaf05be9a2")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "98334249-a109-400a-aee0-899684c9003d")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "9fb88cee-d7a8-47e7-9364-824f1d7c91d2")
+    (at 13.000000 52.000000)
+    (property "Reference" "TP4"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "fb1ea7b5-9def-482b-8d85-83b2393aedea")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "6dbdcb19-a5b0-411e-a219-91b14f6588c9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "f952df17-df51-450b-8024-c5e30199109d")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "9eb4f49b-91d3-4feb-a2a9-1f68f3f31daf")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "bb709537-f5c4-4d6e-9cd9-5d51bb8fc230")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "238bcf27-864a-4315-9483-491af8e281b0")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "8cff689b-481f-4aa5-89f9-6dfa4d02a061")
+    (at 17.000000 52.000000)
+    (property "Reference" "TP5"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "5eb3607c-2839-4a17-b7ae-9d3dad3efe5e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "23d2ece1-7a19-40e4-a6a7-a94ebbfc64e3")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "3058de2d-7d34-41ea-86d7-00a8805ea748")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "feb0bf9b-e74c-41e1-8b3f-1e5d3ead5e28")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "5f5cfb41-e672-47eb-ab14-900fe52b6e10")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "cdce3e7e-ceda-481f-96fa-8376f99bc66e")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "c672c7a9-2cc4-4a67-81d5-c4b5f39ec29a")
+    (at 28.000000 28.000000)
+    (property "Reference" "TP6"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "875a3a65-7d18-4459-85bd-e199e74e7ade")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4a03b0e3-504a-48cf-8587-f1d7c9d404fb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "dbbf9f25-4c82-4904-88fb-7e4be7aadbc3")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "7a83e6d2-d949-4254-bd7b-62e192cefce9")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "7472663f-a879-4752-98c9-689214b0a78c")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "c2d25923-de9c-4a03-a844-84a70bfa4ca8")
+    )
+  )
+  (footprint "TestPoint:TestPoint_Pad_D1.0mm"
+    (layer "F.Cu")
+    (uuid "b92bc39b-d207-4ae2-9c89-9ece8a2ca840")
+    (at 8.000000 50.000000)
+    (property "Reference" "TP7"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "96ec1b70-5421-42c6-be9f-a96755574496")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "TestPoint"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "6fbfa181-0c41-4119-9849-1a4c0de19583")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "db7d750c-1459-49ff-878c-bb2e736a87aa")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "3954461f-15f9-4f17-ac63-993b043df677")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8a2e1c95-cda0-4f23-972f-25dbc8c3943e")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "f32b67af-4fe2-41e7-9a6f-da52a7481568")
+    )
+  )
+  (footprint "Package_DFN_QFN:QFN-73-1EP_7x7mm_P0.5mm_EP5.15x5.15mm"
+    (layer "F.Cu")
+    (uuid "371e0a25-fde9-4116-b81c-cdc989292491")
+    (at 10.000000 15.000000)
+    (property "Reference" "U1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "6873914d-b8a1-4d8e-a68e-acbf13aee2d1")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "nRF52840-QIAA-R"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "ef3afdde-f532-4f34-a55f-161b91395be0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_DFN_QFN:QFN-73-1EP_7x7mm_P0.5mm_EP5.15x5.15mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "0d3ee85a-12cc-49d7-896b-f4caed83436b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "0372ae7e-14b0-48cf-800a-c9dbc7455186")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "64753bb7-59ab-4db0-b43b-49fa3e9d9aa6")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ea9ca3b2-f399-4c7e-a569-0f68e01147d2")
+    )
+  )
+  (footprint "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm"
+    (layer "F.Cu")
+    (uuid "7cdd59d9-0f4d-4f57-ab3f-7602d914934f")
+    (at 10.000000 32.000000)
+    (property "Reference" "U2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "4e6c08b2-faea-47aa-853d-ce8d24a40bc5")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "SX1262IMLTRT"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "5dd8a1dd-ad6b-43a1-abfb-7272ba02bba3")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "ae0ed0dd-fb8b-4ece-9eda-0bfb2100a6fe")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "6b4f558b-e599-4e56-925b-05b03ce0ad6a")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "dd5ed1cc-a159-44fa-aaa0-79ec4365871a")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "3b66a6b6-a811-4604-85fe-1e48e5b2031c")
+    )
+  )
+  (footprint "Package_TO_SOT_SMD:SOT-23-5"
+    (layer "F.Cu")
+    (uuid "7f750743-4e12-4abe-8859-87531d6d13bd")
+    (at 28.000000 10.000000)
+    (property "Reference" "U3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "80c69ced-23b3-4928-a920-d76c17c9b7ed")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "AP2112K-3.3TRG1"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "a8494b5f-421e-4548-980d-7acb7b362108")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "38265137-c593-4b8a-a437-893300cbfc80")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "1077e0db-b46e-4a89-a419-c4a878487599")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c6652f10-b807-4e79-ba21-acc8e9024edf")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "087c9f53-106b-43d8-8d72-1d700f89d891")
+    )
+  )
+  (footprint "Package_TO_SOT_SMD:SOT-23-5"
+    (layer "F.Cu")
+    (uuid "38330d6f-b31f-4b44-9acf-ce206cb49309")
+    (at 36.000000 10.000000)
+    (property "Reference" "U4"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "d7c5a5d4-e6cf-4002-a27a-3f4c167824b7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "MCP73831T-2ACI/OT"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "0e7ca867-5730-4f4e-884d-44d43f5145d7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "21e571b5-1ca1-45b9-a91f-2c9ce50a831f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8797e5fd-bd5e-40da-a305-264548d00db8")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c95bd1b5-c4e1-4701-a984-def6c17284e6")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "6cc2fde6-0b92-42c9-9918-38952340467b")
+    )
+  )
+  (footprint "Package_TO_SOT_SMD:SOT-23-6"
+    (layer "F.Cu")
+    (uuid "d7197efb-01e6-4b7b-9180-616857acccc2")
+    (at 28.000000 5.000000)
+    (property "Reference" "U5"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "e81fde7b-cd88-494e-917f-912a968a05bb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "LTC4412MPS6#TRPBF"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "6034dd0a-5898-489b-ab6d-0a93dee2d2d7")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "c7c6a0b5-c726-44f3-84a8-b9faa9f5b7fb")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "5da72efb-db66-4692-95df-0c025f562a5d")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8279ce5c-00f2-48a5-a6a0-349d60d0c5f7")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ed36ad47-7fed-435d-9ea7-b3c07367ba9d")
+    )
+  )
+  (footprint "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm"
+    (layer "F.Cu")
+    (uuid "5947c482-a57f-41fe-ac44-d1a8a87271b0")
+    (at 10.000000 50.000000)
+    (property "Reference" "U6"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "a3a5e7d3-a09f-4b86-8894-4c8a16da9125")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "DRV2605LDGSR"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "4f8f1a83-3bea-4829-8141-e361245448cf")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "bc06c723-245b-47fa-992b-1fc9805af7a9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "c449cb4d-1715-4c64-afe9-6d447228d9dd")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "637448d0-5792-4011-a0ee-0a2a075a39e3")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "5bc82ba5-d392-48b0-b46e-5f6c3ca2d069")
+    )
+  )
+  (footprint "Package_LGA:LGA-12_2x2mm_P0.5mm"
+    (layer "F.Cu")
+    (uuid "6f9d57e1-1eeb-425d-9513-7a0ebf326201")
+    (at 25.000000 30.000000)
+    (property "Reference" "U7"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "e4a1928f-d4ae-42aa-940a-f84e22739a70")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "LIS2DH12TR"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "85d8ad73-3632-4bc5-95d9-89163aa909b0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_LGA:LGA-12_2x2mm_P0.5mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "78525019-7be7-471e-bd0b-dbbdfe805331")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "461348b1-f3de-41d5-b661-d562f5e53423")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "86ff5497-f654-48e0-a533-60126435555e")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "d2a20bb6-10fb-47ce-96e7-627e3025bf64")
+    )
+  )
+  (footprint "Package_LGA:LGA-12_2x2mm_P0.5mm"
+    (layer "F.Cu")
+    (uuid "ee69fb7f-0fc0-49f3-9aaa-31ac65aac256")
+    (at 30.000000 30.000000)
+    (property "Reference" "U8"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "e3c9b925-03f9-48b0-bcb2-1f198006ed57")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "LIS2DH12TR"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "94983b79-7dca-4be6-a7cd-adbc06bd3cf9")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Package_LGA:LGA-12_2x2mm_P0.5mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "04304d59-e126-4055-b411-a986279dc02b")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "4a2f0fcf-0af0-415a-a0aa-aad5a559c3ac")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "0e992b3f-89a5-4ec0-9f6a-706dce6b1840")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "658b1e56-284e-4cf8-a200-69c562bf0ea9")
+    )
+  )
+  (footprint "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm"
+    (layer "F.Cu")
+    (uuid "abd7c09e-5152-4424-ad04-9dbaf394d933")
+    (at 14.000000 18.000000)
+    (property "Reference" "Y1"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "cbd2e9f9-4129-460b-9e00-688c94eeb4b0")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "NX2016SA-32MHZ"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "8fb70863-fbcc-47fb-91e7-31fd97c3a066")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Crystal:Crystal_SMD_2016-4Pin_2.0x1.6mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "8c12e0cd-31a5-4c08-9b5e-a090a1f5bc8e")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "116f00a2-59be-4bb6-adbd-47f880546901")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "25814bfd-82db-436b-b528-ac761d1f359f")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ac0e37d0-a699-4142-bad5-20fa24326c93")
+    )
+  )
+  (footprint "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm"
+    (layer "F.Cu")
+    (uuid "0cc1bef2-2f03-46c7-bea3-50ecf2525a9c")
+    (at 14.000000 12.000000)
+    (property "Reference" "Y2"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "704c5b26-be84-4183-bc70-7e2a03252dde")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "ABS07-32.768KHZ-T"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "efc4ecf6-7c42-4a52-9866-9145af238d1f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Crystal:Crystal_SMD_3215-2Pin_3.2x1.5mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "45dd9507-2045-4d7d-b4c7-2ad9c2bc483f")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "375f0f55-c7f0-427f-a61f-318c6fe1dbe5")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "0bf49d5f-aab7-486d-a8af-b8b745eedf20")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "ee5e50ec-6c12-40d5-ac83-0e8156371e7d")
+    )
+  )
+  (footprint "Oscillator:Oscillator_SMD_EuroQuartz_XO32-4Pin_3.2x2.5mm"
+    (layer "F.Cu")
+    (uuid "6f959b5a-df09-41e6-90be-e5cf4246a015")
+    (at 15.000000 32.000000)
+    (property "Reference" "Y3"
+      (at 0 -3 0)
+      (layer "F.Cu.SilkS")
+      (uuid "7d19caaf-9920-4739-b888-152efe756634")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Value" "X1G0042110003"
+      (at 0 3 0)
+      (layer "F.Cu.Fab")
+      (uuid "81981c96-787f-4d0c-80ab-8aeb21d103bf")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (property "Footprint" "Oscillator:Oscillator_SMD_EuroQuartz_XO32-4Pin_3.2x2.5mm"
+      (at 0 0 0)
+      (unlocked yes)
+      (layer "F.Cu.Fab")
+      (hide yes)
+      (uuid "86130a9a-b413-46da-a13f-bb7de5555037")
+      (effects
+        (font
+          (size 1 1)
+          (thickness 0.15)
+        )
+      )
+    )
+    (attr smd)
+    (fp_line
+      (start -0.5 -0.5)
+      (end 0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "8d1a2a35-a4f3-4ff6-8694-d84844431193")
+    )
+    (fp_line
+      (start -0.5 0.5)
+      (end -0.5 -0.5)
+      (stroke
+        (width 0.12)
+        (type solid)
+      )
+      (layer "F.Cu.SilkS")
+      (uuid "7c35de56-1c0b-4212-a22a-9e9b74593f34")
+    )
+    (pad "1" smd roundrect
+      (at 0 0)
+      (size 0.5 0.5)
+      (layers "F.Cu" "F.Cu.Paste" "F.Cu.Mask")
+      (roundrect_rratio 0.25)
+      (uuid "00e55bb9-f3c3-4b45-ac18-2aa1c9436d70")
+    )
+  )
+)

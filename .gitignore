@@ -1,0 +1,20 @@
+kicad-placer
+ignore
+.DS_Store
+
+# KiCad autosaves and temp files
+*~ 
+_autosave-*
+\#auto_saved_files\#
+*.lck
+
+# KiCad caches
+fp-info-cache
+*.bak
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+*.tmp
+*.log
