@@ -85,6 +85,30 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 | K2 | P0.05 | AIN3 | NC (available for PWM) |
 | AD12 | BUZZER | P0.17 | Q1 base via R11 -> TP7 |
 
+### Battery Voltage Monitoring
+| Pin | Name | GPIO | Connection |
+|-----|------|------|------------|
+| A12 | VBAT_SENSE | P0.02/AIN0 | R17/R18 voltage divider mid-point |
+
+**Voltage Divider Circuit:**
+```
+VBAT ─── R17 (1MΩ) ─┬─ VBAT_SENSE ─── U1 pin A12 (AIN0/P0.02)
+                    │
+         R18 (1MΩ) ─┘
+                    │
+                   GND
+```
+
+**ADC Calculation:**
+- Divider ratio: 1:1 (divides by 2)
+- 4.2V battery → 2.1V at ADC
+- 3.0V battery → 1.5V at ADC
+- Current drain: 4.2V / 2MΩ = 2.1µA (negligible)
+
+**Firmware thresholds:**
+- Low battery warning: 3.4V (1.7V at ADC)
+- Critical shutdown: 3.2V (1.6V at ADC)
+
 ### Debug/SWD
 | Pin | Name | Connection |
 |-----|------|------------|
@@ -94,17 +118,20 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 ### Antenna
 | Pin | Name | Connection |
 |-----|------|------------|
-| H23 | ANT | NC (BLE antenna, needs connection) |
+| H23 | ANT | **TODO:** Add BLE antenna matching network if BLE used |
+
+**Note:** If using BLE, add pi-match network + chip antenna or U.FL connector.
 
 ### Unconnected GPIO (Available)
 | Pin | Name | GPIO |
 |-----|------|------|
-| A12 | AIN0 | P0.02 |
 | B13 | AIN1 | P0.03 |
 | B11 | AIN4 | P0.28 |
 | A10 | AIN5 | P0.29 |
 | B9 | AIN6 | P0.30 |
 | A8 | AIN7 | P0.31 |
+
+**Note:** A12 (P0.02/AIN0) is now used for battery voltage monitoring via VBAT_SENSE.
 
 ---
 
@@ -137,14 +164,21 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 | 14 | BUSY | U1 P1.14 |
 | 13 | DIO1 | R12 -> U1 P1.15 |
 | 12 | DIO2 | NC (no antenna switch needed) |
-| 6 | DIO3 | Y3 TCXO power control |
+| 6 | DIO3 | Y3 pin 4 (V+) - TCXO power control |
 | 15 | ~RESET | U1 P1.06 |
 
 ### Crystal/TCXO
 | Pin | Name | Connection |
 |-----|------|------------|
-| 3 | XTA | Y3 TCXO output |
+| 3 | XTA | Y3 pin 3 (OUT) - TCXO clock input |
 | 4 | XTB | NC (not used with TCXO) |
+
+**TCXO Wiring (Y3):**
+```
+U2 pin 6 (DIO3) ─── Y3 pin 4 (V+)
+U2 pin 3 (XTA)  ─── Y3 pin 3 (OUT)
+GND             ─── Y3 pin 2 (GND)
+```
 
 ### RF Interface
 | Pin | Name | Connection |
@@ -157,9 +191,11 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 | Pin | Name | Connection |
 |-----|------|------------|
 | 7 | VREG | C23 (100nF) to GND |
-| 9 | DCC_SW | L_SX inductor |
-| 11 | VBAT_IO | C22 (4.7uF) to GND |
-| 24 | VR_PA | 100nF to GND |
+| 9 | DCC_SW | L_SX1 (15nH) to VBAT_IO (pin 11) |
+| 11 | VBAT_IO | L_SX1 + C22 (4.7µF) to GND |
+| 24 | VR_PA | **TODO:** Add 100nF cap to GND |
+
+**Note:** L_SX1 = 15nH per schematic. Verify against Semtech AN1200.40 reference design.
 
 ---
 
@@ -173,7 +209,7 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 | 2 | GND | Ground |
 | 3 | EN | VIN (tied high) |
 | 4 | NC | Not connected |
-| 5 | VOUT | 3.3V rail + C16 (100nF) |
+| 5 | VOUT | 3.3V rail + C16 (10µF) |
 
 ---
 
@@ -197,7 +233,7 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 
 | Pin | Name | Connection |
 |-----|------|------------|
-| 1 | REG | Internal regulator output (add 1µF cap to GND) |
+| 1 | REG | Internal regulator output + C27 (1µF) to GND |
 | 2 | SCL | I2C Clock -> U1 P0.27 |
 | 3 | SDA | I2C Data -> U1 P0.26 |
 | 4 | IN/TRIG | PWM input (NC - not used) |
@@ -223,8 +259,8 @@ This document contains all pin numbers and assignments for U1-U6 ICs.
 | 4 | CS | I2C mode enable (tie to VDD) |
 | 5 | INT2 | Interrupt 2 (NC) |
 | 6 | INT1 | Interrupt 1 -> TP6 |
-| 7 | Vdd_IO | 3.3V + C21 |
-| 8 | Vdd | 3.3V + C21 |
+| 7 | Vdd_IO | 3.3V + C21 (100nF) + C29 (10µF) |
+| 8 | Vdd | 3.3V + C21 (100nF) + C29 (10µF) |
 | 9 | GND | Ground (power_in) |
 | 10 | GND | Ground |
 | 11 | GND | Ground |
@@ -262,17 +298,25 @@ U1 P1.06 (R24) ────────────────── U2 pin 15 
 
 ### Power Distribution
 ```
-VBUS (USB) ──┬── U4 pin 4 (VDD)
+VBUS (USB) ──┬── U4 pin 4 (VDD) ─── Charger
              │
              D2 (SS14 Schottky)
              │
-VBAT ────────┴── U3 pin 1 (VIN)
+VBAT ────────┼── U3 pin 1 (VIN) ─── LDO
+             │
+             └── R17 ─┬─ VBAT_SENSE ─── U1 AIN0 (battery monitoring)
+                      │
+                  R18 ─┘
+                      │
+                     GND
 
 U3 pin 5 (VOUT) ──── 3.3V rail
 ```
 
 **Note:** D2 Schottky provides simple OR-ing of VBUS and VBAT.
-~0.3V drop on battery path (acceptable for 3.7V LiPo → 3.3V LDO).
+~0.3V drop on battery path. See "Schematic Review Fixes" for power path improvement.
+
+**Battery Monitoring:** R17+R18 (1MΩ each) form a voltage divider for ADC reading on P0.02.
 
 ### 3.3V Connections (all from U3 pin 5 VOUT)
 
@@ -315,4 +359,61 @@ U3 pin 5 (VOUT) ──── 3.3V rail
 
 ---
 
+## Schematic Review Fixes
+
+| Ref | Issue | Severity | Fix |
+|-----|-------|----------|-----|
+| VR_PA | Missing decoupling cap on U2 pin 24 | HIGH | Add 100nF cap to GND |
+| L_SX1 | Verify value - schematic shows 15nH | VERIFY | Check against Semtech reference design |
+| D2 | Schottky on both USB+VBAT causes headroom issues | MEDIUM | Consider moving D2 to USB path only (see below) |
+| C16 | Was 100nF | DONE | Changed to **10µF** ✓ |
+| C27 | Was missing | DONE | Added 1µF to DRV2605 REG (pin 1) ✓ |
+| R17/R18 | Battery voltage divider | DONE | Correctly wired ✓ |
+
+### Battery Voltage Divider (Verified Correct)
+
+```
+VBAT ─── R17 (1MΩ) ─┬─ VBAT_SENSE ─── U1 AIN0 (P0.02)
+                    │
+         R18 (1MΩ) ─┤
+                    │
+         C30 (100nF)┘
+                    │
+                   GND
+```
+
+### Power Path Improvement (Optional)
+
+To improve battery headroom, move D2 Schottky to USB path only:
+
+**Current:**
+```
+VBUS ──┬── D2 ──┬── U3 VIN
+       │        │
+VBAT ──┴────────┘
+```
+
+**Improved:**
+```
+VBUS ─── D2 ──┬── U3 VIN
+              │
+VBAT ─────────┘  (direct, no diode drop)
+```
+
+This allows operation down to 3.25V battery (vs 3.85V currently).
+
+---
+
+## Suggested Parts
+
+| Ref | Part Number | Value | Package | Notes |
+|-----|-------------|-------|---------|-------|
+| L_SX1 | Murata LQW15AN15NJ00 | 15nH | 0402 | Per schematic |
+| C_VRPA | Standard MLCC | 100nF | 0402 | Add for U2 VR_PA (pin 24) |
+| R17, R18 | Standard | 1MΩ | 0402 | 1% tolerance for accuracy |
+| C30 | Standard MLCC | 100nF | 0402 | VBAT_SENSE filter cap |
+
+---
+
 *Generated: 2026-01-30*
+*Updated: 2026-01-30 - Added battery monitoring, verified R17/R18/C30 correct, updated L_SX1 to 15nH*
