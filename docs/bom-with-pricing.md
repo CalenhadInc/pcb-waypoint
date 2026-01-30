@@ -66,7 +66,9 @@
 | 1 | R1 | 2k | 0603 | MCP73831 PROG (500mA) |
 | 2 | R6,R7 | 5.1k | 0603 | USB-C CC pulldowns |
 | 2 | R9,R10 | 0 ohm | 0603 | Antenna selection jumpers |
-| 4 | R2,R3,R11,R12 | 1k | 0603 | LED current limiting |
+| 2 | R2,R3 | 1k | 0603 | LED current limiting |
+| 1 | R11 | 1k | 0603 | Buzzer base resistor |
+| 1 | R12 | 1k | 0603 | DIO1 series resistor |
 | 4 | R4,R5,R8,R13 | 10k | 0603 | Pull-up resistors |
 | 2 | R14,R15 | 4.7k | 0603 | I2C pull-ups |
 
@@ -159,4 +161,4 @@
 | 20021121-00006C4LF | C178291 |
 | X1G0042110003 (TCXO) | C3013793 |
 | 2.54-2P-LT | C722697 |
-| LTC4412MPS6#TRPBF | C688483 (if needed) |
+| LTC4412MPS6#TRPBF | C688483 (REMOVED - using D2 Schottky instead) |

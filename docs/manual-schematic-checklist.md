@@ -13,9 +13,9 @@ In KiCAD Schematic Editor:
 
 ---
 
-## Components to Add (72 total)
+## Components to Add (73 total)
 
-### ICs (8 components)
+### ICs (6 components)
 
 | Ref | Symbol to Search | Value | Footprint |
 |-----|------------------|-------|-----------|
@@ -23,12 +23,12 @@ In KiCAD Schematic Editor:
 | U2 | SX1262 or Generic IC | SX1262IMLTRT | Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm |
 | U3 | AP2112K or LDO | AP2112K-3.3 | Package_TO_SOT_SMD:SOT-23-5 |
 | U4 | MCP73831 | MCP73831 | Package_TO_SOT_SMD:SOT-23-5 |
-| U5 | LTC4412 or Generic IC | LTC4412 | Package_TO_SOT_SMD:SOT-23-6 |
-| U6 | DRV2605 or Generic IC | DRV2605 | Package_SON:WSON-8-1EP_2x2mm_P0.5mm |
-| U7 | LIS2DH12 or Accelerometer | LIS2DH12 | Package_LGA:LGA-12_2x2mm_P0.5mm |
-| U8 | LIS2DH12 or Accelerometer | LIS2DH12 | Package_LGA:LGA-12_2x2mm_P0.5mm |
+| U5 | DRV2605 or Generic IC | DRV2605 | Package_SON:WSON-8-1EP_2x2mm_P0.5mm |
+| U6 | LIS2DH12 or Accelerometer | LIS2DH12 | Package_LGA:LGA-12_2x2mm_P0.5mm |
 
-### Capacitors (22 components)
+**Note:** LTC4412 ideal diode removed - using D2 (SS14 Schottky) for power OR-ing instead.
+
+### Capacitors (26 components)
 
 **Large caps (0805):**
 | Ref | Value | Footprint |
@@ -45,14 +45,17 @@ In KiCAD Schematic Editor:
 | C13, C14 | 12.5pF | Capacitor_SMD:C_0402_1005Metric |
 | C16, C18 | 100nF | Capacitor_SMD:C_0402_1005Metric |
 | C17 | 2.2pF | Capacitor_SMD:C_0402_1005Metric |
-| C20, C21, C22 | 100nF | Capacitor_SMD:C_0402_1005Metric |
+| C20, C21, C23, C24, C25 | 100nF | Capacitor_SMD:C_0402_1005Metric |
+| C22, C26 | 4.7uF | Capacitor_SMD:C_0805_2012Metric |
 
 **Quick method:**
 - Press `A`, type "C", add capacitor symbol
-- Place 22 of them
-- Edit each one to set ref (C1-C22) and value
+- Place 26 of them
+- Edit each one to set ref (C1-C26) and value
 
-### Resistors (17 components)
+**nRF52840 decoupling:** C24 (DEC5), C25 (DEC6), C26 (DECUSB) - were missing from original plan
+
+### Resistors (16 components)
 
 All 0402 package:
 
@@ -65,15 +68,16 @@ All 0402 package:
 | R6, R7 | 5.1k | Resistor_SMD:R_0603_1608Metric |
 | R8 | 10k | Resistor_SMD:R_0402_1005Metric |
 | R9, R10 | 0R | Resistor_SMD:R_0402_1005Metric |
-| R11, R12 | 1k | Resistor_SMD:R_0402_1005Metric |
+| R11 | 1k | Resistor_SMD:R_0402_1005Metric |
+| R12 | 1k | Resistor_SMD:R_0402_1005Metric |
 | R13 | 10k | Resistor_SMD:R_0402_1005Metric |
 | R14, R15 | 4.7k | Resistor_SMD:R_0402_1005Metric |
 | R16 | 10k | Resistor_SMD:R_0402_1005Metric |
-| R17 | 1k | Resistor_SMD:R_0402_1005Metric |
 
 **Quick method:**
-- Add 17 resistor symbols (`A` → "R")
-- Edit each for ref (R1-R17) and value
+- Add 16 resistor symbols (`A` → "R")
+- Edit each for ref (R1-R16) and value
+- Note: R11 is buzzer base resistor, R12 is DIO1 series resistor
 
 ### Crystals/Oscillators (3 components)
 
@@ -138,7 +142,7 @@ All 0402 package:
 ## After Adding All Components
 
 1. **Annotate:** `Tools → Annotate Schematic` (assigns sequential numbers)
-2. **Check:** Verify you have all 72 components
+2. **Check:** Verify you have all 73 components
 3. **Update PCB:** `Tools → Update PCB from Schematic (F8)`
 4. **Run Placement Script:**
    ```bash

@@ -112,11 +112,11 @@ Output:
 ### Placement Script Handles:
 
 ✅ **80+ Components**:
-- U1-U8: ICs (nRF52840, SX1262, LDO, charger, sensors)
+- U1-U6: ICs (nRF52840, SX1262, LDO, charger, haptic, accel)
 - Y1-Y3: Crystals and oscillators
 - J1-J6: Connectors (USB, battery, RF, SWD, headers)
 - C1-C34: Capacitors (bypass, bulk, load)
-- R1-R17: Resistors (pull-up, LED, programming)
+- R1-R16: Resistors (pull-up, LED, programming)
 - L1-L3: Inductors (DC-DC, matching)
 - D1-D3: Diodes (ESD, Schottky, flyback)
 - LED1-LED2, SW1, LS1, Q1, TP1-TP7

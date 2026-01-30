@@ -66,27 +66,18 @@ X=-23 (left edge)                    X=+23 (right edge)
 - **Orientation:** Pin 1 (STAT) at top-left
 - **Action:** Place U4 at (+13, -21)
 
-### **U5: LTC4412MPS6 (SOT-23-6)**
-- **Location:** ZONE 3, at X=+5mm, Y=-26mm (between USB and LDO)
-- **Orientation:** Pin 1 facing toward J1 (USB connector)
-- **Action:** Place U5 at (+5, -26)
-
-### **U6: DRV2605LDGSR (SON-8, 2x2mm)**
+### **U5: DRV2605LDGSR (SON-8, 2x2mm) - Haptic Driver**
 - **Location:** ZONE 6, at X=-13mm, Y=+19mm
 - **Orientation:** Pin 1 (REG) at top-left
 - **Near:** J6 (LRA motor connector)
-- **Action:** Place U6 at (-13, +19)
+- **Action:** Place U5 at (-13, +19)
 
-### **U7: LIS2DH12TR (LGA-12, 2x2mm) - Accelerometer #1**
+### **U6: LIS2DH12TR (LGA-12, 2x2mm) - Accelerometer**
 - **Location:** ZONE 5, at X=+2mm, Y=-1mm
 - **Orientation:** Pin 1 at top-left, align with X/Y axes for proper motion sensing
-- **Action:** Place U7 at (+2, -1)
+- **Action:** Place U6 at (+2, -1)
 
-### **U8: LIS2DH12TR (LGA-12, 2x2mm) - Accelerometer #2**
-- **Location:** ZONE 5, at X=+7mm, Y=-1mm
-- **Orientation:** Same as U7 (parallel orientation)
-- **Spacing:** 5mm away from U7
-- **Action:** Place U8 at (+7, -1)
+**Note:** LTC4412 ideal diode removed - using D2 (SS14 Schottky) for power OR-ing.
 
 ---
 
@@ -249,7 +240,7 @@ X=-23 (left edge)                    X=+23 (right edge)
 - **Position:** X=-15mm, Y=+21mm
 - **Orientation:**
   - Collector → to LS1
-  - Base → to U1 via R17
+  - Base → to U1 via R11
   - Emitter → to GND
 - **Action:** Place Q1 at (-15, +21)
 
@@ -278,7 +269,7 @@ X=-23 (left edge)                    X=+23 (right edge)
 - **Action:** Place TP5 at (-6, +21)
 
 ### **TP6: ACCEL_INT1 (Accelerometer interrupt)**
-- **Position:** X=+5mm, Y=-3mm (near U7/U8)
+- **Position:** X=+5mm, Y=-3mm (near U7)
 - **Action:** Place TP6 at (+5, -3)
 
 ### **TP7: BUZZER (Buzzer control signal)**
@@ -312,19 +303,22 @@ X=-23 (left edge)                    X=+23 (right edge)
 - C_DCC1: X=-17mm, Y=-18mm
 - C_DCC2: X=-17mm, Y=-14mm
 
-**C5, C6, C7, C8, C16, C18, C20, C21, C22: 100nF 0402 (VDD bypass caps)**
-- Distribute around U1 perimeter, <2mm from VDD pins
-- Place one cap per VDD pin (U1 has multiple VDD pins)
-- Suggested positions (adjust to match actual VDD pin locations):
-  - C5: X=-15mm, Y=-15mm
-  - C6: X=-11mm, Y=-15mm
-  - C7: X=-15mm, Y=-17mm
-  - C8: X=-11mm, Y=-17mm
+**C5, C6, C7, C8, C16, C18, C20, C21, C24, C25: 100nF 0402 (VDD/DEC bypass caps)**
+- Distribute around U1 perimeter, <2mm from VDD/DEC pins
+- Suggested positions (adjust to match actual pin locations):
+  - C5: X=-15mm, Y=-15mm (DEC1)
+  - C6: X=-11mm, Y=-15mm (DEC2)
+  - C7: X=-15mm, Y=-17mm (DEC3)
+  - C8: X=-11mm, Y=-17mm (DEC4)
   - C16: X=-15mm, Y=-13mm
   - C18: X=-11mm, Y=-13mm
   - C20: X=-13mm, Y=-19mm
   - C21: X=-13mm, Y=-13mm
-  - C22: X=-11mm, Y=-19mm
+  - C24: X=-17mm, Y=-15mm (DEC5)
+  - C25: X=-17mm, Y=-17mm (DEC6)
+
+**C26: 4.7uF 0805 (DECUSB, U1 pin AC5)**
+- Position: X=-9mm, Y=-15mm (near USB pins)
 
 ### **Around U2 (SX1262):**
 
@@ -333,14 +327,14 @@ X=-23 (left edge)                    X=+23 (right edge)
 - C19: X=-11mm, Y=-1mm (near U2 pin 24)
 - Distance to U2: <3mm
 
-**C_VBAT: 100nF 0402 (VBAT decoupling)**
-- Position: X=-11mm, Y=+3mm (near U2 pin 20)
+**C22: 4.7uF 0805 (VBAT_IO decoupling, U2 pin 11)**
+- Position: X=-15mm, Y=+3mm (near U2)
 
-**C_VREG: 4.7uF 1206 (VREG decoupling)**
-- Position: X=-15mm, Y=+3mm (near U2 pin 18)
+**C23: 100nF 0402 (VREG decoupling, U2 pin 7)**
+- Position: X=-13mm, Y=+3mm (near U2)
 
-**C_VR_PA: 100nF 0402 (VR_PA decoupling)**
-- Position: X=-13mm, Y=+3mm (near U2 pin 19)
+**C_VR_PA: 100nF 0402 (VR_PA decoupling, U2 pin 24)**
+- Position: X=-11mm, Y=+3mm (near U2)
 
 **C17: 2.2pF 0402 (Antenna matching capacitor)**
 - Position: X=-3mm, Y=+4mm (in RF path with L1)
@@ -378,16 +372,14 @@ X=-23 (left edge)                    X=+23 (right edge)
 - Position: X=-11mm, Y=+19mm (right of U6)
 - Distance to U6: <2mm
 
-### **Around U7, U8 (LIS2DH12 Accelerometers):**
+### **Around U7 (LIS2DH12 Accelerometer):**
 
-**C_ACC1_VDD, C_ACC2_VDD: 100nF 0402 (VDD bypass for U7, U8)**
-- Near U7: X=+2mm, Y=-3mm
-- Near U8: X=+7mm, Y=-3mm
+**C_ACC_VDD: 100nF 0402 (VDD bypass for U7)**
+- Position: X=+2mm, Y=-3mm
 - Distance to IC: <2mm
 
-**C_ACC1_VDDIO, C_ACC2_VDDIO: 100nF 0402 (VDDIO bypass for U7, U8)**
-- Near U7: X=+2mm, Y=+1mm
-- Near U8: X=+7mm, Y=+1mm
+**C_ACC_VDDIO: 100nF 0402 (VDDIO bypass for U7)**
+- Position: X=+2mm, Y=+1mm
 - Distance to IC: <2mm
 
 ### **Other Capacitors:**
@@ -437,7 +429,7 @@ X=-23 (left edge)                    X=+23 (right edge)
 
 ### **Buzzer Driver:**
 
-**R17: 1kΩ 0603 (Q1 base resistor)**
+**R11: 1kΩ 0603 (Q1 base resistor)**
 - Position: X=-15mm, Y=+22mm (between U1 GPIO and Q1 base)
 
 ### **Other Resistors:**
@@ -447,9 +439,8 @@ X=-23 (left edge)                    X=+23 (right edge)
 - R10: X=+9mm, Y=-19mm
 - Purpose: jumpers or current measurement points in power path
 
-**R11, R12: 1kΩ 0603 (General purpose)**
-- R11: (spare or additional function)
-- R12: (spare or additional function)
+**R12: 1kΩ 0603 (DIO1 series resistor)**
+- Position: Between U1 P1.15 and U2 DIO1
 
 ---
 
@@ -548,12 +539,12 @@ Verify clearances for enclosure fit:
 
 ## Assembly Notes
 
-1. **Solder paste stencil**: Required for QFN packages (U1, U2, U7, U8)
+1. **Solder paste stencil**: Required for QFN packages (U1, U2, U7)
 2. **Reflow profile**: Lead-free SAC305 solder, peak temp 245-250°C
 3. **Assembly order**:
    - Bottom side first (if any bottom components)
    - Top side: smallest to largest (0402 → 0603 → 0805 → 1206 → ICs → connectors)
-4. **Inspection**: X-ray inspection recommended for U1, U2, U7, U8 (QFN/LGA packages)
+4. **Inspection**: X-ray inspection recommended for U1, U2, U7 (QFN/LGA packages)
 5. **Programming**: Use J4 (SWD header) with J-Link, ST-Link, or similar programmer
 
 ---
@@ -572,13 +563,11 @@ Verify clearances for enclosure fit:
 | LED1 | U1 | P0.13 (pin 15) | Via R2 (1kΩ) |
 | LED2 | U1 | P0.14 (pin 16) | Via R3 (1kΩ) |
 | SW1 | U1 | P0.15 (pin 17) | Via R4 (10kΩ pull-up) |
-| U6 (SCL) | U1 | P0.27 (pin 5) | I2C clock |
-| U6 (SDA) | U1 | P0.26 (pin 4) | I2C data |
-| U7 (SCL) | U1 | P0.27 (pin 5) | I2C clock (shared) |
-| U7 (SDA) | U1 | P0.26 (pin 4) | I2C data (shared) |
-| U8 (SCL) | U1 | P0.27 (pin 5) | I2C clock (shared) |
-| U8 (SDA) | U1 | P0.26 (pin 4) | I2C data (shared) |
-| Q1 base | U1 | P0.17 (pin 19) | Buzzer control via R17 |
+| U5 (SCL) | U1 | P0.27 (pin 5) | I2C clock (haptic) |
+| U5 (SDA) | U1 | P0.26 (pin 4) | I2C data (haptic) |
+| U6 (SCL) | U1 | P0.27 (pin 5) | I2C clock (accel) |
+| U6 (SDA) | U1 | P0.26 (pin 4) | I2C data (accel) |
+| Q1 base | U1 | P0.17 (pin 19) | Buzzer control via R11 |
 
 ---
 
@@ -592,10 +581,8 @@ Verify clearances for enclosure fit:
 | U2 | SX1262 | -13 | +1 | 4 | LoRa radio |
 | U3 | AP2112K | +5 | -21 | 3 | LDO |
 | U4 | MCP73831 | +13 | -21 | 3 | Charger |
-| U5 | LTC4412 | +5 | -26 | 3 | Ideal diode |
-| U6 | DRV2605 | -13 | +19 | 6 | Haptic |
-| U7 | LIS2DH12 #1 | +2 | -1 | 5 | Accel |
-| U8 | LIS2DH12 #2 | +7 | -1 | 5 | Accel |
+| U5 | DRV2605 | -13 | +19 | 6 | Haptic |
+| U6 | LIS2DH12 | +2 | -1 | 5 | Accel |
 | Y1 | 32MHz Xtal | -9 | -13 | 2 | Near U1 |
 | Y2 | 32.768kHz Xtal | -9 | -19 | 2 | Near U1 |
 | Y3 | TCXO | -8 | +1 | 4 | Near U2 |
@@ -604,7 +591,7 @@ Verify clearances for enclosure fit:
 | J3 | U.FL | +23 | +4 | 4/5 | Right edge |
 | J4 | SWD Header | -23 | +17 | 6 | Left edge |
 | J5 | Expansion | -13 | +31 | 6 | Bottom edge |
-| J6 | LRA Motor | -8 | +21 | 6 | Near U6 |
+| J6 | LRA Motor | -8 | +21 | 6 | Near U5 |
 | LED1 | Green LED | -5 | +19 | 6 | Visible |
 | LED2 | Red LED | -1 | +19 | 6 | Visible |
 | SW1 | Button | +2 | +21 | 6 | Accessible |

@@ -13,19 +13,20 @@ Board: 46mm x 62mm, 2-layer FR4
 **Primary Components:**
 - **U3**: AP2112K-3.3TRG1 (SOT-23-5) - 3.3V LDO regulator
 - **U4**: MCP73831T-2ACI/OT (SOT-23-5) - LiPo battery charger
-- **U5**: LTC4412MPS6 (SOT-23-6) - Ideal diode controller for power path management
 - **D1**: USBLC6-2P6 (SOT-666) - USB ESD protection
-- **D2**: SS14 (SMA) - Schottky diode
+- **D2**: SS14 (SMA) - Schottky diode for power OR-ing
 - **J1**: USB4105-GF-A - USB-C connector
 - **J2**: B2B-PH-K-S - JST battery connector (2-pin)
+
+**Note:** LTC4412 ideal diode removed - using simple Schottky OR-ing (saves $6.97/unit).
 
 **Placement Strategy:**
 ```
 [J1: USB-C]────[D1: ESD]
       │
-      ├──[U5: LTC4412]──[C3: 10uF]
-      │
-      ├──[U3: AP2112K]──[C1: 10uF IN]──[C2: 10uF OUT]
+      ├──[D2: Schottky]──┬──[U3: AP2112K]──[C1: 10uF IN]──[C2: 10uF OUT]
+      │                  │
+      │             [J2: Battery]
       │
       └──[U4: MCP73831]──[C9: 4.7uF]──[R1: 2k PROG]
                                │
@@ -34,8 +35,8 @@ Board: 46mm x 62mm, 2-layer FR4
 
 **Critical Placement:**
 1. **D1 (ESD)** must be <3mm from USB connector J1
-2. **C1, C2, C3, C9** (bulk caps) within 5mm of their respective ICs
-3. Place U5 (ideal diode) between USB input and the rest of the power tree
+2. **C1, C2, C9** (bulk caps) within 5mm of their respective ICs
+3. D2 provides simple OR-ing between VBUS and VBAT (~0.3V drop on battery)
 4. Keep J2 (battery connector) accessible at board edge
 
 **Power Passives:**
@@ -63,10 +64,11 @@ Board: 46mm x 62mm, 2-layer FR4
   - C_DCC1: 100nF 0402
   - C_DCC2: 100nF 0402
 
-**Bypass Capacitors (from C5-C8, C16, C18, C20-C22):**
+**Bypass Capacitors (C5-C8, C16, C18, C20-C21, C24-C26):**
 - Distribute 100nF 0402 caps around U1 perimeter
-- One cap per VDD pin, placed <2mm from pin
+- One cap per VDD/DEC pin, placed <2mm from pin
 - Use C4 (10uF 0805) + C_bypass (100nF) for VDDH
+- C24: DEC5 (pin N24), C25: DEC6 (pin E24), C26: DECUSB 4.7µF (pin AC5)
 
 **Critical Rules:**
 1. **Y1 and Y2 crystals** must be <3mm from their respective pins
@@ -97,9 +99,9 @@ Board: 46mm x 62mm, 2-layer FR4
 
 **Bypass Capacitors:**
 - C15, C19: 10uF 0805 (VDD_IN decoupling, pins 1 & 24)
-- C_VBAT: 100nF 0402 (VBAT pin 20)
-- C_VREG: 4.7uF 1206 (VREG pin 18)
-- C_VR_PA: 100nF 0402 (VR_PA pin 19)
+- C22: 4.7uF 0805 (VBAT_IO pin 11)
+- C23: 100nF 0402 (VREG pin 7)
+- C_VR_PA: 100nF 0402 (VR_PA pin 24)
 
 **Antenna Matching Network:**
 - **L1**: 4.7nH 0402 inductor (MAPI-4020 footprint)
@@ -133,7 +135,7 @@ Board: 46mm x 62mm, 2-layer FR4
 ### **Haptic Feedback Section (Bottom-Center)**
 
 **Primary Component:**
-- **U6**: DRV2605LDGSR (haptic driver with I2C control)
+- **U5**: DRV2605LDGSR (haptic driver with I2C control)
 
 **Supporting Components:**
 - C_HAP1: 10uF 0805 (VDD bypass)
@@ -146,12 +148,12 @@ Board: 46mm x 62mm, 2-layer FR4
 
 **Placement Strategy:**
 ```
-[U6: DRV2605]──[C_HAP1: 10uF]──[C_HAP2: 100nF]
+[U5: DRV2605]──[C_HAP1: 10uF]──[C_HAP2: 100nF]
        │
        ├──[OUT+]─────[J6: LRA Motor]
        ├──[OUT-]─────[J6: LRA Motor]
        │
-       └──[SCL/SDA]──(to U1 and U7/U8)
+       └──[SCL/SDA]──(to U1 and U6)
 ```
 
 **Critical Rules:**
@@ -166,16 +168,12 @@ Board: 46mm x 62mm, 2-layer FR4
 
 ### **Accelerometer Section (Upper-Center)**
 
-**Primary Components:**
-- **U7, U8**: LIS2DH12TR (LGA-12, 2x2mm, 3-axis accelerometer)
-
-**Note:** BOM lists two LIS2DH12TR chips. Verify if:
-- Both are accelerometers (redundancy or different mounting orientations?)
-- One might be a different sensor with same footprint
+**Primary Component:**
+- **U7**: LIS2DH12TR (LGA-12, 2x2mm, 3-axis accelerometer)
 
 **Supporting Components:**
-- C_ACC_VDD: 100nF 0402 (VDD bypass for each IC)
-- C_ACC_VDDIO: 100nF 0402 (VDDIO bypass for each IC)
+- C_ACC_VDD: 100nF 0402 (VDD bypass)
+- C_ACC_VDDIO: 100nF 0402 (VDDIO bypass)
 - R_ACC_INT: 10kΩ 0402 (INT1 pull-up, optional)
 
 **I2C Connections:**
@@ -185,7 +183,7 @@ Board: 46mm x 62mm, 2-layer FR4
 **Placement Strategy:**
 - Place near U1 (nRF52840) to minimize I2C trace lengths
 - Orient for optimal motion sensing (typically perpendicular to board)
-- SA0 pin to GND for I2C address 0x18 (or VDD for 0x19 if using two sensors)
+- SA0 pin to GND for I2C address 0x18
 
 **Critical Rules:**
 1. Bypass caps <2mm from VDD/VDDIO pins
@@ -209,7 +207,7 @@ Board: 46mm x 62mm, 2-layer FR4
 **Buzzer Circuit:**
 - **LS1**: MLT-5020 (5mm passive buzzer)
 - **Q1**: MMBT3904TT1G (NPN transistor, SC-75-3)
-- **R17**: 1kΩ 0603 (base resistor)
+- **R11**: 1kΩ 0603 (base resistor)
 - **D3**: 1N4148W-E3-18 (SOD-123 flyback diode)
 
 **Placement:**
@@ -229,7 +227,7 @@ Board: 46mm x 62mm, 2-layer FR4
         │
     Q1 Collector
         │
-   Q1 Base──[R17]──(P0.17)
+   Q1 Base──[R11]──(P0.17)
         │
     Q1 Emitter──GND
 ```
@@ -279,12 +277,12 @@ Place 1mm test pads at these locations:
 
 | Ref | Net | Purpose | Nearby Component |
 |-----|-----|---------|------------------|
-| TP1 | HAPTIC_EN | Debug P0.04 | Near U1, U6 |
+| TP1 | HAPTIC_EN | Debug P0.04 | Near U1, U5 |
 | TP2 | SCL | Debug I2C clock | Along I2C bus trace |
 | TP3 | SDA | Debug I2C data | Along I2C bus trace |
-| TP4 | LRA+ | Motor drive + | Near U6, J6 |
-| TP5 | LRA- | Motor drive - | Near U6, J6 |
-| TP6 | ACCEL_INT1 | Accelerometer interrupt | Near U7/U8 |
+| TP4 | LRA+ | Motor drive + | Near U5, J6 |
+| TP5 | LRA- | Motor drive - | Near U5, J6 |
+| TP6 | ACCEL_INT1 | Accelerometer interrupt | Near U6 |
 | TP7 | BUZZER | Buzzer control signal | Near Q1, LS1 |
 
 Additional recommended test points:
@@ -301,10 +299,10 @@ Additional recommended test points:
 
 ```
 +------------------------------------------------+ 46mm
-|  [BLE ANTENNA]      [J1:USB-C] [D1][U5]        |
+|  [BLE ANTENNA]      [J1:USB-C] [D1][D2]        |
 |   KEEPOUT           [U3:LDO] [U4:CHG] [J2:BAT] |
 |                                                |
-|  [U1: nRF52840]     [U7/U8: Accel]             |
+|  [U1: nRF52840]     [U6: Accel]                |
 |  [Y1][Y2][L_DCDC]                              |
 |  [Bypass caps]                                 |
 |                                                |
@@ -312,7 +310,7 @@ Additional recommended test points:
 |  [Y3:TCXO]                                     |
 |  [Bypass caps]                                 |
 |                                                |
-|  [J4:SWD]  [U6:HAP] [LED1][LED2] [SW1]         |
+|  [J4:SWD]  [U5:HAP] [LED1][LED2] [SW1]         |
 |            [J6:LRA] [Q1][LS1:BZ]               |
 |                                                |
 |  [J5: Expansion]            [LoRa ANT KEEPOUT] |
@@ -369,7 +367,8 @@ Additional recommended test points:
 |-----------|-------|---------|-----|-------------|
 | C1, C2, C3, C4, C15, C19 | 10uF | 0805 | 6 | Power supply bulk decoupling |
 | C9, C10 | 4.7uF | 1206 | 2 | Charger input/output |
-| C5, C6, C7, C8, C16, C18, C20, C21, C22 | 100nF | 0402 | 9+ | Bypass caps (VDD pins) |
+| C5, C6, C7, C8, C16, C18, C20, C21, C24, C25 | 100nF | 0402 | 10 | Bypass caps (VDD/DEC pins) |
+| C26 | 4.7uF | 0805 | 1 | DECUSB (nRF52840 pin AC5) |
 | C11, C12 | 18pF | 0402 | 2 | 32MHz crystal load caps |
 | C13, C14 | 12.5pF | 0402 | 2 | 32.768kHz crystal load caps |
 | C17 | 2.2pF | 0402 | 1 | Antenna matching |
@@ -383,7 +382,8 @@ Additional recommended test points:
 | R4, R5, R8, R13, R16 | 10kΩ | 0603 | 5 | Pull-ups (buttons, I2C, etc.) |
 | R6, R7 | 5.1kΩ | 0603 | 2 | USB CC pull-down resistors |
 | R9, R10 | 0Ω | 0603 | 2 | Jumpers / current sense |
-| R11, R12, R17 | 1kΩ | 0603 | 3 | General purpose (buzzer base, etc.) |
+| R11 | 1kΩ | 0603 | 1 | Buzzer base resistor (Q1) |
+| R12 | 1kΩ | 0603 | 1 | DIO1 series resistor (U2) |
 | R14, R15 | 4.7kΩ | 0603 | 2 | I2C pull-ups |
 
 ---
@@ -413,23 +413,20 @@ Additional recommended test points:
 
 ## Notes & Special Considerations
 
-1. **LTC4412 Ideal Diode Controller (U5):**
-   - Replaces simple Schottky diode for better power path management
-   - Provides automatic switchover between USB and battery
-   - Lower voltage drop than traditional diode OR-ing
+1. **Power OR-ing with Schottky (D2):**
+   - LTC4412 removed for cost savings ($6.97/unit)
+   - Simple SS14 Schottky provides USB/battery OR-ing
+   - ~0.3V drop on battery path (acceptable for 3.7V LiPo → 3.3V LDO)
 
-2. **DRV2605 vs DRV2603:**
+2. **DRV2605 Haptic Driver (U5):**
    - DRV2605 has I2C control with built-in waveform library
    - More flexible than original DRV2603 (EN/PWM control)
-   - Shares I2C bus with accelerometer(s) - check I2C address conflict
+   - Shares I2C bus with accelerometer - no address conflict
    - Default I2C address: 0x5A
 
-3. **Dual Accelerometers (U7, U8):**
-   - BOM lists two LIS2DH12TR chips
-   - If both are accelerometers: use different I2C addresses (SA0 pin)
-     - U7: SA0 → GND (address 0x18)
-     - U8: SA0 → VDD (address 0x19)
-   - Possible use cases: redundancy, different mounting orientations, or one may be a different sensor
+3. **Accelerometer (U6):**
+   - Single LIS2DH12TR for motion wake, tap detection, and orientation
+   - SA0 → GND (address 0x18)
 
 4. **Crystal Load Capacitors:**
    - Y1 (32MHz): Uses 18pF caps (original spec called for 8pF)
@@ -445,5 +442,7 @@ Additional recommended test points:
 
 ## Revision History
 
-- **v2 (2026-01-29):** Updated based on actual BOM with LTC4412, DRV2605, dual LIS2DH12
+- **v4 (2026-01-30):** Removed LTC4412 (using D2 Schottky), renumbered U5=haptic, U6=accel
+- **v3 (2026-01-30):** Removed duplicate accelerometer U8 (single LIS2DH12 sufficient)
+- **v2 (2026-01-29):** Updated based on actual BOM with LTC4412, DRV2605
 - **v1 (2026-01-28):** Initial placement guide from design specification

@@ -71,10 +71,10 @@ pcb-waypoint/
 Both scripts support:
 
 ✅ **80+ Component Placements**
-- Main ICs (U1-U8): nRF52840, SX1262, LDO, charger, haptic driver, accelerometers
+- Main ICs (U1-U6): nRF52840, SX1262, LDO, charger, haptic driver, accelerometer
 - Crystals & oscillators (Y1-Y3)
 - Connectors (J1-J6): USB-C, battery, RF, SWD, expansion, motor
-- Passives: Capacitors (C1-C22), Resistors (R1-R17), Inductors (L1, L_DCDC, L_SX)
+- Passives: Capacitors (C1-C26), Resistors (R1-R16), Inductors (L1, L_DCDC, L_SX)
 - User interface: LEDs, buttons, buzzer
 - Protection: Diodes (D1-D3)
 - Test points (TP1-TP7)

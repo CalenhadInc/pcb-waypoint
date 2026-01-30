@@ -75,8 +75,10 @@ The Schottky diode prevents battery backfeed when USB is connected.
 | VDD (each) | 100nF |
 | VDDH | 4.7uF + 100nF |
 | VBUS (USB) | 4.7uF |
-| DECUSB | 1uF |
-| DEC1-DEC6 | 100nF each |
+| DECUSB | C26 (4.7uF) |
+| DEC1-DEC4 | C5-C8 (100nF each) |
+| DEC5 | C24 (100nF) |
+| DEC6 | C25 (100nF) |
 
 ### nRF52840 Pin Assignments
 
