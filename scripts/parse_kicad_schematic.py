@@ -431,161 +431,66 @@ class KiCadSchematicParser:
 
         return content
 
-    def generate_design_review_report(self, output_path: Optional[str] = None) -> str:
-        """Generate a report specifically checking design review items."""
+    def generate_summary_report(self, output_path: Optional[str] = None) -> str:
+        """Generate a summary report of the schematic contents (no assertions)."""
 
-        issues = []
-        passed = []
+        # Sort components by reference
+        def sort_key(c):
+            match = re.match(r'([A-Za-z_]+)(\d*)', c.reference)
+            if match:
+                prefix = match.group(1)
+                num = int(match.group(2)) if match.group(2) else 0
+                return (prefix, num)
+            return (c.reference, 0)
 
-        # Build component lookup
-        comp_by_ref = {c.reference: c for c in self.components}
+        sorted_components = sorted(self.components, key=sort_key)
 
-        # Issue 1: Q1 should be MOSFET (2N7002 or similar)
-        q1 = comp_by_ref.get("Q1")
-        if q1:
-            if "MOSFET" in q1.description.upper() or "2N7002" in q1.lib_id or "2N7002" in q1.value:
-                passed.append("Issue 1: Q1 is MOSFET ✓")
-                passed.append(f"  - Part: {q1.value}")
-                passed.append(f"  - Library: {q1.lib_id}")
-            elif "BJT" in q1.description.upper() or "MMBT3904" in q1.value:
-                issues.append("Issue 1: Q1 is still BJT, needs MOSFET ✗")
-                issues.append(f"  - Current: {q1.value}")
-            else:
-                passed.append(f"Issue 1: Q1 type unclear, please verify: {q1.value}")
-        else:
-            issues.append("Issue 1: Q1 not found in schematic ✗")
-
-        # Issue 2: MOSFET gate pull-down resistor (R_GATE)
-        r_gate = comp_by_ref.get("R_GATE")
-        if r_gate:
-            passed.append("Issue 2: R_GATE (gate pull-down) exists ✓")
-            passed.append(f"  - Value: {r_gate.value}")
-        else:
-            issues.append("Issue 2: R_GATE (gate pull-down resistor) missing ✗")
-
-        # Issue 3: C15 - check if exists and location
-        c15 = comp_by_ref.get("C15")
-        if c15:
-            passed.append(f"Issue 3: C15 exists at ({c15.position[0]:.1f}, {c15.position[1]:.1f})")
-            passed.append(f"  - Value: {c15.value}")
-            passed.append("  - Verify: Should be at LDO VBAT input or removed")
-        else:
-            passed.append("Issue 3: C15 removed (or relocated) ✓")
-
-        # Issue 4: Accelerometer INT pull-up (R_ACC1 or R_ACC_PU)
-        r_acc = comp_by_ref.get("R_ACC1") or comp_by_ref.get("R_ACC_PU")
-        if r_acc:
-            passed.append("Issue 4: Accelerometer INT pull-up exists ✓")
-            passed.append(f"  - Reference: {r_acc.reference}")
-            passed.append(f"  - Value: {r_acc.value}")
-        else:
-            issues.append("Issue 4: Accelerometer INT pull-up missing ✗")
-            issues.append("  - Need R_ACC1 or R_ACC_PU (10kΩ) on INT1 line")
-
-        # Issue 5: SW1 debouncing - just note existence
-        sw1 = comp_by_ref.get("SW1")
-        if sw1:
-            passed.append(f"Issue 5: SW1 exists - verify debounce capacitor manually")
-        else:
-            issues.append("Issue 5: SW1 not found ✗")
-
-        # Issue 6: Accelerometer power - check U4/U5 exists (LIS2DH12)
-        accel = None
-        for ref, comp in comp_by_ref.items():
-            if "LIS2DH" in comp.lib_id or "LIS2DH" in comp.value:
-                accel = comp
-                break
-        if accel:
-            passed.append(f"Issue 6: Accelerometer found ({accel.reference}: {accel.value})")
-            passed.append("  - Verify VDD and VDD_IO connections manually")
-        else:
-            issues.append("Issue 6: Accelerometer (LIS2DH12) not found ✗")
-
-        # Issue 7: U3 (LDO) - check exists
-        u3 = comp_by_ref.get("U3")
-        if u3:
-            if "AP2112" in u3.lib_id or "AP2112" in u3.value:
-                passed.append("Issue 7: U3 (AP2112K LDO) exists ✓")
-                passed.append(f"  - Value: {u3.value}")
-                passed.append("  - Verify VIN/VOUT/EN connections manually")
-            else:
-                passed.append(f"Issue 7: U3 exists but unexpected type: {u3.value}")
-        else:
-            issues.append("Issue 7: U3 (LDO) missing ✗")
-
-        # Issue 8: Battery connector J2
-        j2 = comp_by_ref.get("J2")
-        if j2:
-            passed.append(f"Issue 8: J2 (battery connector) exists ✓")
-            passed.append(f"  - Type: {j2.value}")
-            passed.append(f"  - Position: ({j2.position[0]:.1f}, {j2.position[1]:.1f})")
-        else:
-            issues.append("Issue 8: J2 (battery connector) missing ✗")
-
-        # Issue 9: D2 (Schottky) should be REMOVED
-        d2 = comp_by_ref.get("D2")
-        if d2:
-            issues.append("Issue 9: D2 (Schottky diode) still present - REMOVE ✗")
-            issues.append(f"  - Current: {d2.value}")
-            issues.append("  - This allows dangerous voltage to battery!")
-        else:
-            passed.append("Issue 9: D2 removed ✓")
-
-        # Issue 10: J2 placement - covered above
-
-        # Build report
         lines = [
-            "# Design Review Verification Report",
-            f"# Schematic: {self.filepath.name}",
+            "# Schematic Summary Report",
+            f"# File: {self.filepath.name}",
             f"# Title: {self.title}",
             f"# Date: {self.date}",
             f"# Revision: {self.revision}",
             "",
             "=" * 60,
+            "",
+            "## Statistics",
+            "",
+            f"- Components: {len(self.components)}",
+            f"- Labeled nets: {len(set(l.name for l in self.labels))}",
+            f"- Power symbols: {len(self.power_symbols)}",
+            f"- Wires: {len(self.wires)}",
+            "",
+            "## Components by Type",
             ""
         ]
 
-        if issues:
-            lines.append(f"## ISSUES FOUND ({len(issues)} items)")
+        # Group by prefix
+        from collections import defaultdict
+        by_prefix = defaultdict(list)
+        for c in sorted_components:
+            match = re.match(r'([A-Za-z_]+)', c.reference)
+            prefix = match.group(1) if match else "Other"
+            by_prefix[prefix].append(c)
+
+        for prefix in sorted(by_prefix.keys()):
+            comps = by_prefix[prefix]
+            lines.append(f"### {prefix} ({len(comps)})")
             lines.append("")
-            lines.extend(issues)
+            lines.append("| Ref | Value | Footprint |")
+            lines.append("|-----|-------|-----------|")
+            for c in comps:
+                fp_short = c.footprint.split(":")[-1] if c.footprint else "-"
+                lines.append(f"| {c.reference} | {c.value} | {fp_short} |")
             lines.append("")
 
-        lines.append(f"## PASSED/VERIFIED ({len(passed)} items)")
+        # Net labels
+        lines.append("## Signal Nets")
         lines.append("")
-        lines.extend(passed)
-        lines.append("")
-
-        # Component summary
-        lines.extend([
-            "=" * 60,
-            "",
-            "## Full Component Summary",
-            "",
-            f"Total components: {len(self.components)}",
-            f"Total labeled nets: {len(set(l.name for l in self.labels))}",
-            f"Total power symbols: {len(self.power_symbols)}",
-            f"Total wires: {len(self.wires)}",
-            ""
-        ])
-
-        # Key components table
-        key_refs = ["Q1", "R_GATE", "R_ACC1", "D2", "U3", "J2", "SW1", "C15"]
-        lines.append("### Key Components Status")
-        lines.append("")
-        lines.append("| Reference | Value | Library | Status |")
-        lines.append("|-----------|-------|---------|--------|")
-
-        for ref in key_refs:
-            comp = comp_by_ref.get(ref)
-            if comp:
-                status = "Present"
-                if ref == "D2":
-                    status = "⚠️ REMOVE"
-                lines.append(f"| {ref} | {comp.value} | {comp.lib_id.split(':')[-1]} | {status} |")
-            else:
-                status = "Missing" if ref != "D2" else "✓ Removed"
-                lines.append(f"| {ref} | - | - | {status} |")
+        net_names = sorted(set(l.name for l in self.labels))
+        for name in net_names:
+            count = sum(1 for l in self.labels if l.name == name)
+            lines.append(f"- {name} ({count} connection{'s' if count > 1 else ''})")
 
         content = "\n".join(lines)
 
@@ -692,8 +597,8 @@ def main():
     parser.generate_netlist_summary(str(netlist_summary_path))
     print(f"Generated: {netlist_summary_path}")
 
-    review_path = output_dir / f"{base_name}_design_review.txt"
-    parser.generate_design_review_report(str(review_path))
+    review_path = output_dir / f"{base_name}_summary.txt"
+    parser.generate_summary_report(str(review_path))
     print(f"Generated: {review_path}")
 
     json_path = output_dir / f"{base_name}_export.json"
@@ -726,7 +631,7 @@ def main():
 
     # Print design review summary to console
     print("\n" + "=" * 60)
-    print(parser.generate_design_review_report())
+    print(parser.generate_summary_report())
 
 
 if __name__ == "__main__":

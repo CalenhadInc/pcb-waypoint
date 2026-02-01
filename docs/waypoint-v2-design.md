@@ -143,9 +143,9 @@ Pull-ups: R14, R15 = 4.7kΩ to 3.3V
 |-----|------|--------|------------|
 | AD8 | P0.13 | LED1 | R2 (1k) → LED1 (Green) |
 | AC9 | P0.14 | LED2 | R3 (1k) → LED2 (Red) |
-| AD10 | P0.15 | BUTTON | SW1 + R4 (10k pull-up) |
+| AD10 | P0.15 | BUTTON | SW1 + R4 (10k pull-up) + C31 (100nF debounce) |
 | AC13 | P0.18 | RESET | R8 (10k pull-up) → J4 |
-| AD12 | P0.17 | BUZZER | R11 (1k) → Q1 base |
+| AD12 | P0.17 | BUZZER | R11 (1k) → Q1 gate |
 
 ### Sensors & Control
 
@@ -263,7 +263,7 @@ Matching: C28 = 1.0pF shunt to GND
 | 3 | SA0 | GND (I2C address 0x18) |
 | 4 | CS | 3.3V (I2C mode) |
 | 5 | INT2 | NC |
-| 6 | INT1 | R_ACC_PU (10k) to 3.3V + TP6 |
+| 6 | INT1 | R21 (10k) pull-up to 3.3V + TP6 |
 | 7 | Vdd_IO | 3.3V (tied to Vdd) + C21 (100nF) |
 | 8 | Vdd | 3.3V + C29 (10µF) |
 | 9-14 | GND | Ground |
@@ -279,9 +279,9 @@ Matching: C28 = 1.0pF shunt to GND
 **Transistor:** Q1 = 2N7002 (N-Channel MOSFET, SOT-23)
 
 ```
-P0.17 (U1.AD12) ──[R11: 1k]──┬── Q1 Gate
+P0.17 (U1.AD12) ──[R11: 1k]──┬── Q1 Gate (pin 1)
                               │
-                           [R_GATE: 10k]
+                           [R20: 10k] (pull-down)
                               │
                              GND
 
@@ -291,9 +291,9 @@ P0.17 (U1.AD12) ──[R11: 1k]──┬── Q1 Gate
                            │
                        LS1 Buzzer
                            │
-                      Q1 Drain
+                      Q1 Drain (pin 3)
                            │
-                      Q1 Source
+                      Q1 Source (pin 2)
                            │
                           GND
 ```
@@ -391,8 +391,8 @@ VBAT ─── R17 (1MΩ) ─┬─ VBAT_SENSE ─── U1 pin A12 (P0.02/AIN0)
 
 ### Passives
 
-- **Capacitors:** C1-C30 (various values, 0402/0603/0805)
-- **Resistors:** R1-R18, R_GATE, R_ACC_PU (various values, 0402)
+- **Capacitors:** C1-C31 (various values, 0402/0603/0805)
+- **Resistors:** R1-R21 (various values, 0402)
 - **Inductors:** L1 (4.7nH), L2 (2.7nH), L_DCDC1 (10µH), L_SX1 (15nH)
 
 ### Other

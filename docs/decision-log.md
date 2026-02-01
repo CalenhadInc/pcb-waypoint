@@ -405,6 +405,27 @@ USB 5V ──► MCP73831 (charger) ──► Battery (J2)
 
 ---
 
+## Decision 15: Component Reference Standardization
+
+**Date:** February 2026
+
+During design review, several components had descriptive names that were changed to standard numbering:
+
+| Original | Standard | Function |
+|----------|----------|----------|
+| R_GATE | R20 | Q1 gate pull-down (10kΩ) |
+| R_ACC1 | R21 | Accelerometer INT1 pull-up (10kΩ) |
+| D3 | D2 | Buzzer flyback diode (1N4148W) |
+
+**Context:**
+- The original D2 (SS14 Schottky in power path) was removed entirely (see Decision 2)
+- D3 (flyback diode) was renumbered to D2 to fill the gap
+- R_GATE and R_ACC1 were given standard R## designators for consistency
+
+**Reasoning:** Standard numbering makes BOM generation cleaner and avoids confusion with pick-and-place files.
+
+---
+
 ## Future Optimization Opportunities
 
 If further cost reduction needed:
