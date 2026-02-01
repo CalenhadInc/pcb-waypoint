@@ -69,8 +69,9 @@
 | 2 | R2,R3 | 1k | 0603 | LED current limiting |
 | 1 | R11 | 1k | 0603 | Buzzer base resistor |
 | 1 | R12 | 1k | 0603 | DIO1 series resistor |
-| 4 | R4,R5,R8,R13 | 10k | 0603 | Pull-up resistors |
+| 5 | R4,R5,R8,R13,R16 | 10k | 0603 | Pull-up resistors |
 | 2 | R14,R15 | 4.7k | 0603 | I2C pull-ups |
+| 2 | R17,R18 | 1M | 0402 | Battery voltage divider (VBAT_SENSE) |
 
 ---
 

@@ -268,19 +268,20 @@ This document tracks the original design options, adapted choices, and trade-off
 | Decision | Original | Adapted | Savings/Unit |
 |----------|----------|---------|--------------|
 | Power management | LTC4412 | SS14 Schottky | $6.97 |
-| Haptic driver | DRV2605L | DRV2603 | $0.60 |
+| Haptic driver | DRV2603 | DRV2605L (kept) | -$0.60 |
 | TCXO | EPSON | YXC/TXC | $1.70 |
 | Sourcing (MCU+Radio) | DigiKey | LCSC | $4.15 |
+| BLE Antenna | Linx ($4.21) | Johanson ($0.27) | $3.94 |
 | Button | 2x | 2x (kept) | $0.00 |
-| **TOTAL** | | | **$13.42** |
+| **TOTAL** | | | **$16.16** |
 
 ### Impact at Volume
 
 | Volume | Savings |
 |--------|---------|
-| 100 units | $1,362 |
-| 1,000 units | $13,620 |
-| 10,000 units | $136,200 |
+| 100 units | $1,616 |
+| 1,000 units | $16,160 |
+| 10,000 units | $161,600 |
 
 ---
 
@@ -294,6 +295,102 @@ This document tracks the original design options, adapted choices, and trade-off
 | AP2112K LDO | Cheap, reliable, right specs |
 | USB-C connector | Standard, future-proof |
 | LRA motor type | Better haptic feel than ERM |
+
+---
+
+## Decision 9: BLE Chip Antenna
+
+### Options Considered
+
+| Option | Part Number | Cost | Notes |
+|--------|-------------|------|-------|
+| **Johanson** | 2450AT18A100E | $0.27 | Smallest, cheapest |
+| Abracon | ACAG1204-2450-T | $0.62 | Mid-range |
+| Linx | ANT-2.45-CHP-x | $4.21 | Most expensive |
+
+**Decision: Johanson 2450AT18A100E**
+
+**Reasoning:** Cheapest option at $0.27, well-documented, proven design. Requires pi-match network.
+
+**Matching Network:**
+- L2 = 2.7nH (series inductor)
+- C28 = 1.0pF (shunt capacitor to GND)
+
+---
+
+## Decision 10: LIS2DH12 I2C Address
+
+| Option | SA0 Pin | Address | Chosen |
+|--------|---------|---------|--------|
+| **Address 0x18** | GND | 0x18 | YES |
+| Address 0x19 | VDD | 0x19 | NO |
+
+**Decision: SA0 → GND (address 0x18)**
+
+**Reasoning:** No conflict with DRV2605L which has fixed address 0x5A. Either address would work, but 0x18 is the default per datasheet.
+
+---
+
+## Decision 11: SX1262 DC-DC Inductor Value
+
+| Original Value | Correct Value |
+|----------------|---------------|
+| 47nH (WRONG) | **6.8µH** |
+
+**Decision: Corrected L_SX1 to 6.8µH**
+
+**Critical Fix:** The schematic had 47nH which is completely wrong for the SX1262 DC-DC converter. Per Semtech reference design, must be 6.8µH.
+
+**Recommended Part:** Murata LQH32CN6R8M23 (6.8µH, 0603, 700mA, 0.28Ω DCR)
+
+---
+
+## Decision 12: Haptic Driver (Revised)
+
+**Note:** Decision 3 originally specified DRV2603, but schematic uses **DRV2605LDGS**.
+
+| Aspect | DRV2603 | DRV2605L |
+|--------|---------|----------|
+| Interface | PWM | I2C |
+| Auto-resonance | No | Yes |
+| Effect library | No | 123 effects |
+| Cost | $0.55 | $1.15 |
+
+**Current Implementation: DRV2605LDGS (I2C)**
+
+**Reasoning:** I2C interface simpler for nRF52840 (no dedicated PWM needed), built-in effects reduce firmware complexity.
+
+---
+
+## Decision 13: nRF52840 DC-DC Inductor
+
+| Parameter | Requirement | Selected |
+|-----------|-------------|----------|
+| Value | 10µH ±20% | 10µH |
+| DCR | <0.5Ω | 0.35Ω |
+| Isat | >50mA | 150mA |
+| Package | 0805 | 0805 |
+
+**Selected Part:** Murata LQM21PN100MGRD
+
+**Decision:** Added L_DCDC1 between DCC (pin B3) and DCCH (pin AB2).
+
+**Reasoning:** Nordic reference design uses this exact part. Required for internal DC-DC converter to function - was missing from original schematic.
+
+---
+
+## Decision 14: DRV2605 REG Capacitor
+
+| Parameter | Value |
+|-----------|-------|
+| Capacitance | 1µF |
+| Package | 0402 |
+
+**Selected Part:** Standard 1µF ceramic (C27)
+
+**Decision:** Added C27 on DRV2605 REG pin (pin 1).
+
+**Reasoning:** DRV2605L datasheet recommends 1µF capacitor on internal regulator output for stability. Was missing from original schematic.
 
 ---
 

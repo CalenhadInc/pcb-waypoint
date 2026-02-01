@@ -37,11 +37,11 @@ The Schottky diode prevents battery backfeed when USB is connected.
 
 | Ref | Value | Package | Location |
 |-----|-------|---------|----------|
-| C_USB1 | 10uF | 0805 | USB VBUS input |
-| C_LDO_IN | 10uF | 0805 | AP2112K input |
-| C_LDO_OUT | 10uF | 0805 | AP2112K output |
-| C_CHG | 4.7uF | 0603 | MCP73831 input |
-| R_PROG | 2k | 0402 | MCP73831 (sets 500mA charge) |
+| C18 | 100nF | 0402 | USB VBUS input |
+| C15 | 10uF | 0805 | AP2112K input (VBAT side) |
+| C16 | 10µF | 0402 | AP2112K output |
+| C19 | 10uF | 0805 | MCP73831 output (VBAT) |
+| R1 | 2k | 0402 | MCP73831 PROG (sets 500mA charge) |
 
 ---
 
@@ -134,6 +134,13 @@ The Schottky diode prevents battery backfeed when USB is connected.
 |--------|-----|------|
 | ACCEL_INT1 | 13 | P0.11 |
 | BUZZER | 19 | P0.17 |
+| VBAT_SENSE | 3 | P0.02 (AIN0) |
+
+**Battery Voltage Sensing:**
+- R17 (1MΩ) + R18 (1MΩ) voltage divider from VBAT
+- C30 (100nF) filter capacitor
+- Divider ratio: 1:1 (half of VBAT)
+- At 4.2V battery: ~2.1V at ADC input
 
 ---
 
@@ -153,7 +160,7 @@ The Schottky diode prevents battery backfeed when USB is connected.
 
 | Ref | Value | Package | Part Number |
 |-----|-------|---------|-------------|
-| L_SX | 47nH | 0402 | Murata LQW15AN47NJ00D |
+| L_SX1 | 15nH | 0402 | Murata or equivalent |
 
 ### Antenna Matching Network (915 MHz)
 
@@ -205,15 +212,16 @@ The Schottky diode prevents battery backfeed when USB is connected.
 
 ## Haptic Feedback Section
 
-### Driver: DRV2603RUNR (open-loop LRA driver)
+### Driver: DRV2605LDGS (I2C LRA/ERM driver with effects library)
 
 | Spec | Value |
 |------|-------|
-| Part | DRV2603RUNR |
-| Package | SON-8 (2x2mm) |
-| Interface | EN pin + PWM |
-| Supply | 2.5V - 5.5V (use 3.3V) |
-| Output | Up to 150mA RMS |
+| Part | DRV2605LDGS |
+| Package | VSSOP-10 (3x3mm) |
+| Interface | I2C (shared bus with accelerometer) |
+| Supply | 2.0V - 5.2V (use 3.3V) |
+| Output | Up to 300mA peak |
+| Features | 123 built-in effects, auto-resonance, closed-loop |
 
 ### LRA Motor
 
@@ -223,17 +231,18 @@ The Schottky diode prevents battery backfeed when USB is connected.
 
 ### Haptic Connections
 
-| Signal | nRF52840 Pin | DRV2603 Pin |
-|--------|--------------|-------------|
-| EN | P0.04 | EN |
-| IN/TRIG | P0.05 (PWM) | IN/TRIG |
+| Signal | nRF52840 Pin | DRV2605L Pin |
+|--------|--------------|--------------|
+| SDA | P0.26 | SDA (pin 3) |
+| SCL | P0.27 | SCL (pin 2) |
+| EN | P0.04 | EN (pin 5) |
 
 ### Haptic Passives
 
 | Ref | Value | Package | Purpose |
 |-----|-------|---------|---------|
-| C_HAP1 | 10uF | 0805 | VDD bypass |
-| C_HAP2 | 100nF | 0402 | VDD bypass |
+| C27 | 1µF | 0402 | REG pin decoupling |
+| R16 | 10k | 0402 | EN pull-up |
 
 ---
 
@@ -342,9 +351,15 @@ P0.17 (nRF52840) ──[1k]──┬── Q1 Base
 
 ### 2.4 GHz BLE Antenna
 
-**Type:** PCB meandered inverted-F antenna
-- Follow Nordic nRF52840-DK reference layout
-- Dimensions: ~15mm x 5mm keep-out area
+**Type:** Chip antenna with matching network
+
+| Ref | Part | Value | Purpose |
+|-----|------|-------|---------|
+| ANT1 | Chip Antenna | 2.4GHz | 1206 ceramic chip antenna |
+| L2 | Inductor | 2.7nH | Antenna matching |
+| C28 | Capacitor | 1.0pF | Antenna matching |
+
+- Connected to nRF52840 ANT pin (H23) via L2
 - Location: Opposite corner from LoRa antenna
 
 ---
@@ -365,9 +380,10 @@ P0.17 (nRF52840) ──[1k]──┬── Q1 Base
 | Ref | Function | Part Number |
 |-----|----------|-------------|
 | SW1 | User button | B3FS-1050P |
-| SW2 | Reset button | B3FS-1050P |
 
-*10k pull-up resistors (0402) to 3.3V, 100nF debounce caps*
+*R4 (10k) pull-up to 3.3V, active-low*
+
+**Note:** Hardware reset via SWD header (J4 pin 6) and R8 (10k) pull-up on nRESET line.
 
 ### Buzzer
 
@@ -460,8 +476,8 @@ Standard ARM SWD pinout:
 |  [SX1262]        [Matching]  [U.FL]            |
 |  [TCXO]                                        |
 |                                                |
-|  [SWD]  [DRV2603] [LEDs]   [JST BAT]           |
-|         [Buttons] [Buzzer]  [LoRa PCB ANT]     |
+|  [SWD]  [DRV2605L] [LEDs]   [JST BAT]          |
+|         [Button]  [Buzzer]  [LoRa PCB ANT]     |
 |                                        [LRA]   |
 +------------------------------------------------+
                     ^ 62mm

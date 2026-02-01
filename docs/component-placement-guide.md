@@ -169,7 +169,7 @@ Board: 46mm x 62mm, 2-layer FR4
 ### **Accelerometer Section (Upper-Center)**
 
 **Primary Component:**
-- **U7**: LIS2DH12TR (LGA-12, 2x2mm, 3-axis accelerometer)
+- **U6**: LIS2DH12TR (LGA-12, 2x2mm, 3-axis accelerometer)
 
 **Supporting Components:**
 - C_ACC_VDD: 100nF 0402 (VDD bypass)
@@ -379,12 +379,13 @@ Additional recommended test points:
 |-----------|-------|---------|-----|-----|
 | R1 | 2kΩ | 0603 | 1 | MCP73831 charge current programming |
 | R2, R3 | 1kΩ | 0603 | 2 | LED current limiting |
-| R4, R5, R8, R13, R16 | 10kΩ | 0603 | 5 | Pull-ups (buttons, I2C, etc.) |
+| R4, R5, R8, R13, R16 | 10kΩ | 0603 | 5 | Pull-ups (buttons, HAPTIC_EN, etc.) |
 | R6, R7 | 5.1kΩ | 0603 | 2 | USB CC pull-down resistors |
 | R9, R10 | 0Ω | 0603 | 2 | Jumpers / current sense |
 | R11 | 1kΩ | 0603 | 1 | Buzzer base resistor (Q1) |
 | R12 | 1kΩ | 0603 | 1 | DIO1 series resistor (U2) |
 | R14, R15 | 4.7kΩ | 0603 | 2 | I2C pull-ups |
+| R17, R18 | 1MΩ | 0402 | 2 | Battery voltage divider (VBAT_SENSE) |
 
 ---
 

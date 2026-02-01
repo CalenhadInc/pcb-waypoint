@@ -18,4 +18,5 @@ Thumbs.db
 
 *.tmp
 *.log
-waypoint-kicad/waypoint-kicad-backups
+waypoint-kicad/*-backups
+freerouting.jar
