@@ -31,24 +31,35 @@ This document tracks the original design options, adapted choices, and trade-off
 | Pros | Seamless power switching, no power loss |
 | Cons | Expensive, adds complexity |
 
-### Adapted Option: Schottky Diode
+### Adapted Option: Separate Rails (No Diode)
 
 | Spec | Value |
 |------|-------|
-| Part | SS14 |
-| Cost | $0.02/unit |
-| Function | Simple OR-ing diode on battery path |
-| Pros | Cheap, simple, reliable |
-| Cons | ~0.3V drop on battery, slight power loss |
+| Part | None (D2 removed) |
+| Cost | $0.00/unit |
+| Function | USB charges battery only, system runs from battery |
+| Pros | Safe, simple, no voltage drop |
+| Cons | System always runs from battery (even when USB connected) |
 
-**Decision: Use Schottky diode**
+**Decision: Remove D2, use separate rails**
 
 **Trade-off Analysis:**
-- Saves: **$6.97/unit** ($6,970 at 1000 units)
-- Cost: ~0.3V voltage drop reduces usable battery capacity by ~8%
-- For a 3.7V LiPo → 3.4V after diode → still above 3.3V LDO dropout
+- Saves: **$6.99/unit** ($6,990 at 1000 units) vs LTC4412
+- No voltage drop on battery path
+- USB 5V only goes to charger (MCP73831), never to system
+- Battery (3.0-4.2V) directly powers LDO
+- Eliminates safety hazard (original D2 design allowed 4.5V on battery)
 
-**When to reconsider:** If battery life is critical and every mAh matters, revisit LTC4412.
+**Why D2 was removed (Jan 2026 review):**
+The original SS14 Schottky design had a critical bug - J2 (battery connector) was on the VBUS net, meaning battery saw USB 5V directly. This was a safety hazard. Rather than fix the diode placement, we switched to separate rails architecture which is simpler and inherently safe.
+
+**Power Architecture:**
+```
+USB 5V ──► MCP73831 (charger) ──► Battery (J2)
+                                      │
+                                      ▼
+                                  AP2112K (LDO) ──► 3.3V
+```
 
 ---
 
@@ -267,7 +278,7 @@ This document tracks the original design options, adapted choices, and trade-off
 
 | Decision | Original | Adapted | Savings/Unit |
 |----------|----------|---------|--------------|
-| Power management | LTC4412 | SS14 Schottky | $6.97 |
+| Power management | LTC4412 | Separate rails (no diode) | $6.99 |
 | Haptic driver | DRV2603 | DRV2605L (kept) | -$0.60 |
 | TCXO | EPSON | YXC/TXC | $1.70 |
 | Sourcing (MCU+Radio) | DigiKey | LCSC | $4.15 |

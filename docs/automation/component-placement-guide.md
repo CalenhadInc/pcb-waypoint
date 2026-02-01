@@ -14,29 +14,26 @@ Board: 46mm x 62mm, 2-layer FR4
 - **U3**: AP2112K-3.3TRG1 (SOT-23-5) - 3.3V LDO regulator
 - **U4**: MCP73831T-2ACI/OT (SOT-23-5) - LiPo battery charger
 - **D1**: USBLC6-2P6 (SOT-666) - USB ESD protection
-- **D2**: SS14 (SMA) - Schottky diode for power OR-ing
 - **J1**: USB4105-GF-A - USB-C connector
 - **J2**: B2B-PH-K-S - JST battery connector (2-pin)
 
-**Note:** LTC4412 ideal diode removed - using simple Schottky OR-ing (saves $6.97/unit).
+**Note:** Separate rails architecture - USB only charges battery, system always runs from battery.
 
 **Placement Strategy:**
 ```
 [J1: USB-C]────[D1: ESD]
       │
-      ├──[D2: Schottky]──┬──[U3: AP2112K]──[C1: 10uF IN]──[C2: 10uF OUT]
-      │                  │
-      │             [J2: Battery]
-      │
       └──[U4: MCP73831]──[C9: 4.7uF]──[R1: 2k PROG]
                                │
-                         [J2: JST Battery]
+                         [J2: Battery]──[C15: 10uF]──[U3: AP2112K]──[C16: 10uF]
+                                                            │
+                                                         3.3V Rail
 ```
 
 **Critical Placement:**
 1. **D1 (ESD)** must be <3mm from USB connector J1
-2. **C1, C2, C9** (bulk caps) within 5mm of their respective ICs
-3. D2 provides simple OR-ing between VBUS and VBAT (~0.3V drop on battery)
+2. **C15, C16** (LDO caps) within 5mm of U3
+3. **C9** (charger cap) within 5mm of U4
 4. Keep J2 (battery connector) accessible at board edge
 
 **Power Passives:**
@@ -299,7 +296,7 @@ Additional recommended test points:
 
 ```
 +------------------------------------------------+ 46mm
-|  [BLE ANTENNA]      [J1:USB-C] [D1][D2]        |
+|  [BLE ANTENNA]      [J1:USB-C] [D1]            |
 |   KEEPOUT           [U3:LDO] [U4:CHG] [J2:BAT] |
 |                                                |
 |  [U1: nRF52840]     [U6: Accel]                |
@@ -414,10 +411,11 @@ Additional recommended test points:
 
 ## Notes & Special Considerations
 
-1. **Power OR-ing with Schottky (D2):**
-   - LTC4412 removed for cost savings ($6.97/unit)
-   - Simple SS14 Schottky provides USB/battery OR-ing
-   - ~0.3V drop on battery path (acceptable for 3.7V LiPo → 3.3V LDO)
+1. **Separate Rails Power Architecture:**
+   - USB 5V only goes to MCP73831 charger
+   - System always runs from battery via AP2112K LDO
+   - No diode drop, full battery voltage to LDO
+   - Saves $6.99/unit vs LTC4412, inherently safe design
 
 2. **DRV2605 Haptic Driver (U5):**
    - DRV2605 has I2C control with built-in waveform library
@@ -443,7 +441,8 @@ Additional recommended test points:
 
 ## Revision History
 
-- **v4 (2026-01-30):** Removed LTC4412 (using D2 Schottky), renumbered U5=haptic, U6=accel
+- **v5 (2026-02-01):** Removed D2 Schottky, switched to separate rails architecture
+- **v4 (2026-01-30):** Removed LTC4412, renumbered U5=haptic, U6=accel
 - **v3 (2026-01-30):** Removed duplicate accelerometer U8 (single LIS2DH12 sufficient)
 - **v2 (2026-01-29):** Updated based on actual BOM with LTC4412, DRV2605
 - **v1 (2026-01-28):** Initial placement guide from design specification

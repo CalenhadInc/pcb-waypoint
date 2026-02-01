@@ -3,8 +3,8 @@
 ## Optimized BOM - nRF52840 + SX1262 PCB
 
 ### Cost Optimizations Applied
-- Removed LTC4412 ideal diode controller (using Schottky diode instead)
-- Using DRV2603 instead of DRV2605L for haptics
+- Removed LTC4412 ideal diode controller (separate rails architecture - no diode needed)
+- Using DRV2605L for haptics (I2C control with effects library)
 - Using cheaper TCXO alternative (YXC/TXC vs EPSON)
 
 ---
@@ -19,7 +19,7 @@
 | 1 | U4 | Battery Charger | MCP73831T-2ACI/OT | SOT-23-5 | LCSC |
 | 1 | U5 | Haptic Driver | DRV2603RUNR | SON-8 | LCSC / DigiKey |
 | 1 | D1 | ESD Protection | USBLC6-2P6 | SOT-666 | LCSC |
-| 1 | D2 | Schottky Diode | SS14 | SMA | LCSC |
+| 1 | D2 | Flyback Diode | 1N4148W | SOD-123 | LCSC |
 
 ---
 
@@ -107,7 +107,7 @@
 | MCP73831T-2ACI/OT | $0.50 | $0.40 | $0.32 | $0.25 |
 | DRV2603RUNR | $0.80 | $0.65 | $0.55 | $0.45 |
 | USBLC6-2P6 | $0.10 | $0.07 | $0.05 | $0.04 |
-| SS14 | $0.02 | $0.015 | $0.01 | $0.008 |
+| 1N4148W | $0.01 | $0.008 | $0.006 | $0.004 |
 | 32MHz Crystal | $0.25 | $0.18 | $0.13 | $0.10 |
 | 32.768kHz Crystal | $0.30 | $0.22 | $0.15 | $0.12 |
 | 32MHz TCXO | $0.80 | $0.60 | $0.45 | $0.35 |
@@ -162,4 +162,6 @@
 | 20021121-00006C4LF | C178291 |
 | X1G0042110003 (TCXO) | C3013793 |
 | 2.54-2P-LT | C722697 |
-| LTC4412MPS6#TRPBF | C688483 (REMOVED - using D2 Schottky instead) |
+| 1N4148W-E3-18 | C727110 |
+
+**Note:** LTC4412 and SS14 Schottky removed - using separate rails power architecture.
